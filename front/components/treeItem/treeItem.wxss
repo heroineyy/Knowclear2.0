@@ -1,0 +1,7 @@
+/* components/treeItem/treeItem.wxss */
+/* 二级回复 */
+.image3{height: 50rpx;margin-top: 10rpx;}
+.text{font-size:26rpx;}
+.huifu{
+  color: green;
+}

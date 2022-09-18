@@ -1,0 +1,27 @@
+<!--components/treeItem/treeItem.wxml-->
+<view class="back2">
+        <view style="display: flex;flex-direction: row;"   bindtap="selecttap">
+                  <view style="margin-top: 10px">
+                      <image class='image3' catchtap="toOthers" data-openid="{{node.account.openid}}" data-isAnonymous="{{node.isAnonymous}}" wx:if="{{node.account.sex==1}}"  src="../../images/man.png" mode="heightFix"></image>
+    <image class='image3' catchtap="toOthers" data-openid="{{node.account.openid}}" data-isAnonymous="{{node.isAnonymous}}" wx:if="{{node.account.sex==0}}" src="../../images/woman.png" mode="heightFix"></image>
+    <image class='image3' catchtap="toOthers" data-openid="{{node.account.openid}}" data-isAnonymous="{{node.isAnonymous}}" wx:if="{{node.account.sex===null}}" src="../../images/nosex.png" mode="heightFix"></image>
+                  <!-- <text class="text"> {{node.account.nickname}}回复{{node.parentAccount.nickname}} :  {{node.content}}</text> -->
+ <text class="text" wx:if="{{node.isAnonymous=='0' && last.isAnonymous=='0'}}"> {{node.account.nickname}}<text class="huifu">回复</text>{{last.account.nickname}} : {{node.content}} </text>
+ <text class="text" wx:if="{{node.isAnonymous=='0' && last.isAnonymous=='1' && last.isAnonymous==1 && last.account.sex==1}}"> {{node.account.nickname}}<text class="huifu">回复</text>某男生 : {{node.content}} </text>
+ <text class="text" wx:if="{{node.isAnonymous=='0' && last.isAnonymous=='1' && last.isAnonymous==1 && last.account.sex==0}}"> {{node.account.nickname}}<text class="huifu">回复</text>某女生 : {{node.content}} </text>
+ <text class="text" wx:if="{{node.isAnonymous=='0' && last.isAnonymous=='1' && last.isAnonymous==1 && last.account.sex===null}}"> {{node.account.nickname}}<text class="huifu">回复</text>某学生 : {{node.content}} </text>
+ <text class="text"  wx:if="{{node.isAnonymous==1 && node.account.sex=='0' && last.isAnonymous=='0' }}">某女生<text class="huifu">回复</text>{{node.parentAccount.nickname}}：{{node.content}}</text>
+<text class="text"  wx:if="{{node.isAnonymous==1 && node.account.sex==1 && last.isAnonymous=='0'}}">某男生<text class="huifu">回复</text>{{node.parentAccount.nickname}}：{{node.content}}</text>
+<text class="text"  wx:if="{{ node.isAnonymous==1 && node.account.sex===null && last.isAnonymous=='0'}}">某学生<text class="huifu">回复</text>{{node.parentAccount.nickname}}：{{node.content}}</text>
+ <text class="text"  wx:if="{{ node.isAnonymous==1 && node.account.sex=='0' && last.isAnonymous==1 &&last.account.sex==0 }}"> 某女生<text class="huifu">回复</text>某女生：{{node.content}}</text>
+ <text class="text"  wx:if="{{ node.isAnonymous==1 && node.account.sex=='0' && last.isAnonymous==1 &&last.account.sex==1 }}"> 某女生<text class="huifu">回复</text>某男生：{{node.content}}</text>
+ <text class="text"  wx:if="{{node.isAnonymous==1 && node.account.sex==0 && last.isAnonymous==1 && last.account.sex===null}}">某女生<text class="huifu">回复</text>某学生：{{node.content}}</text>
+ <text class="text"  wx:if="{{ node.isAnonymous==1 && node.account.sex=='1' && last.isAnonymous==1 &&last.account.sex==0 }}"> 某男生<text class="huifu">回复</text>某女生：{{node.content}}</text>
+  <text class="text"  wx:if="{{node.isAnonymous==1 && node.account.sex=='1' && last.isAnonymous=='1' && last.account.sex==1}}">某男生<text class="huifu">回复</text>某男生:{{node.content}}</text>
+  <text class="text"  wx:if="{{node.isAnonymous==1 && node.account.sex==1 && last.isAnonymous==1 && last.account.sex===null}}">某男生<text class="huifu">回复</text>某学生：{{node.content}}</text>
+ <text class="text"  wx:if="{{node.isAnonymous==1 && node.account.sex===null && last.isAnonymous==1 && last.account.sex===null}}">某学生<text class="huifu">回复</text>某学生：{{node.content}}</text>
+                </view>
+        </view>
+<!--自己调用自己，如果这个item还有replyList就在进行调用-->
+        <tree wx:for="{{node.children}}" node="{{item}}" bind:listener="ComponentListener" last="{{node}}"></tree>
+</view>

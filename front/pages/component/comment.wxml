@@ -1,0 +1,38 @@
+<view class="comment">
+    <view class="comment-2">
+      <view class="others">
+          <!-- <image class="comment-face" bindtap="toOthers" data-openid="{{model.account.openid}}" data-isAnonymous="{{model.isAnonymous}}" src="{{model.account.sex==1?'../../images/man.png':'../../images/woman.png'}}"></image> -->
+           <!-- 已经填写性别 -->
+           <view wx:if="{{model.account.sex!==null}}" class="others" bindtap="toOthers" data-openid="{{model.account.openid}}" data-isAnonymous="{{model.isAnonymous}}">
+              <image  class="comment-face" src="{{model.account.sex==1?'cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/image2/man.png':'cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/image2/woman.png'}}"/>
+            </view>
+            <!-- 没有填写性别 -->
+            <view wx:if="{{model.account.sex==null}}" class="others" bindtap="toOthers" data-openid="{{model.account.openid}}" data-isAnonymous="{{model.isAnonymous}}">
+              <image  class="comment-face" src="cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/image2/nosex.jpg"/>
+            </view>
+          <!-- <view class="name" bindtap="toOthers" data-openid="{{model.account.openid}}" data-isAnonymous="{{model.isAnonymous}}">{{model.account.nickname}}  </view> -->
+               <!-- 匿名 无性别 -->
+    <view  wx:if="{{model.account.sex=='null'&&model.isAnonymous==1}}" class="name">某学生</view>
+    <!-- 匿名 男 -->
+    <view  wx:if="{{model.account.sex==1&&model.isAnonymous==1}}" class="name">某男生</view>
+    <!-- 匿名 女 -->
+    <view  wx:if="{{model.account.sex==0&&model.isAnonymous==1}}" class="name">某女生</view>
+    <!--公开 -->
+    <view  wx:if="{{model.isAnonymous==0}}" class="name">{{model.account.nickname}}</view>
+    
+          <view  wx:if="{{parent==model.parentId}}" style="margin-top:40rpx; font-size: 20rpx;">:
+          </view>
+          <view class="huifu" wx:else>回复</view>
+          <view  wx:if="{{parent==model.parentId}}">
+          </view>
+          <view class="tonickname" bindtap="toOthers" data-openid="{{model.parentaccount.openid}}"  wx:else>{{model.parentAccount.nickname}}:</view>
+      </view>
+      <view class="content-time">
+      <text class="content" bind:tap="tapItem" data-topicId="{{model.topicId}}" data-tonickname="{{model.account.nickname}}" data-tocommentId="{{model.commentId}}"> {{model.content}}</text>
+      </view>   
+    </view>
+    <view class="comment-time">{{model.gmtCreated}}</view>
+    <view wx:if='{{model.children.length!==0}}'>
+      <comment wx:for='{{ model.children}}' wx:key='commentId' model='{{item}}' bind:tap="tapItem" data-topicId="{{item.topicId}}" data-tonickname="{{item.account.nickname}}" data-tocommentId="{{item.commentId}}"></comment>
+    </view>   
+</view>

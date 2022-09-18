@@ -1,0 +1,351 @@
+/* 话题详情 */
+.detail{
+  padding:20rpx;
+  border-bottom:12rpx solid #eee;
+}
+.detail-text{
+  word-break: break-all;
+}
+.top{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  margin: 20rpx;
+}
+.others{
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+.name{
+  /* flex:1;
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+  bottom: 0;
+  color: #b3b3b4; */
+  padding-left:20rpx;
+  line-height:60rpx;
+  color:#757575;
+  white-space: nowrap;
+}
+.nickname{
+  white-space: nowrap;
+}
+.type{
+  line-height:50rpx;
+  /* padding-left:318rpx; */
+  padding-right:5rpx;
+}
+.center{
+  /* margin-top: 20rpx; */
+  padding:20rpx;
+}
+/* 发布的图片信息 */
+.images{
+  display: flex;
+  flex-direction: row;
+}
+.images_1{
+  padding-left: 20rPX;
+}
+.image_1{
+  width:500rpx;
+  height:250rpx;
+}
+.images_2{
+  /* width:275rpx; */
+  height: 100px;
+  margin-right: 5rpx;
+}
+.image_2{
+  width:230rpx ;
+  height: 100px;
+}
+.images_4{
+  height:200px;
+  margin-right: 5rpx;
+}
+.image_4{
+  width:300rpx ;
+  height: 100px;
+}
+.images_5{
+  height: 200px;
+  margin-right: 5rpx;
+}
+.image_5{
+  width:230rpx ;
+  height: 100px;
+}
+.images_6{
+  height: 300px;
+  margin-right: 5rpx;
+}
+.image_6{
+  width:200rpx ;
+  height: 100px;
+}
+.low{
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx;
+  position: relative; */
+  display:flex;
+  margin:20rpx;
+  justify-content:space-between;
+}
+.time{
+  text-align: left;
+  line-height:60rpx;
+}
+.prize-comment{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  margin-top: 30rpx;
+}
+.prize{
+  display: flex;
+  flex: 1;
+  margin-right: 20rpx;
+}
+/* 点赞图片 */
+.prize-img{
+  width: 23px;
+  height: 23px;
+  margin-right: 5rpx;
+}
+/* 评论图片 */
+.comment-img{
+  width: 25px;
+  height: 25px;
+}
+.divLine{
+  background: #E0E3DA;
+  width: 100%;
+  height: 8rpx;
+}
+
+/* 评论部分 */
+.comment-box{
+  padding: 20rpx;
+}
+.comment-one{
+  margin:20rpx;
+  border-bottom: 2rpx solid #eee;
+}
+.comment-text{
+  word-break: break-all;
+  margin:20rpx;
+}
+.person-time-reply{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.comment-person{
+  display: flex;
+  margin-top: 30rpx;
+  word-break: break-all;
+}
+.comment-face{
+  display: block;
+  width: 75rpx;
+  height:75rpx;
+  margin-top:20rpx;
+}
+.name{
+  flex:1;
+  font-size: 26rpx;
+  margin-left:10rpx;
+  margin-top: 20rpx;
+  bottom: 0;
+  color: #b3b3b4;
+  word-break: break-all;
+}
+.comment-time{
+  color: #b3b3b4;
+  margin-top: 40rpx;
+}
+.reply-logo{
+  width: 23px;
+  height: 23px;
+  margin-top: 40rpx;
+  margin-right: 20rpx;
+}
+/* 二级评论 */
+/* .comment-children{
+  background-color: #f0f1f1;
+  border-radius: 10rpx;
+  margin-bottom: 20rpx;
+}
+.comment-children-detail{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  line-height: 70rpx;
+}
+.comment-children-reply{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  line-height: 70rpx;
+}
+.huifu{
+  color:green;
+  margin-left: 10rpx;
+  margin-right: 10rpx
+}
+.comment-children-text{
+  margin-left: 20rpx;
+}
+.comment-divline{
+  background: #E0E3DA;
+  width: 100%;
+  height: 5rpx;
+} */
+/* 发布评论 */
+.pub-comment{
+  background-color: #f7f7f7;
+  width: 100%;
+  height: 100rpx;
+  /* padding: 20rpx 20rpx;
+  margin: 0 20rpx;
+  margin-top: 10rpx; */
+  margin-top: 10rpx;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;  
+  left: 0;
+  bottom:0rpx;
+}
+.pub-left{
+  height: 80;
+  align-items: center;
+  background-color: #fff;
+  /* color: #f7f7f7; */
+  border-radius: 20rpx;
+  margin-right: 40rpx;
+  margin-left: 10rpx;
+}
+.pub-input{
+  padding: 10rpx ;
+  width: 450rpx;
+}
+.anonymous{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 10rpx;
+  color: #7f7f7f;
+  border: solid 1rpx #7f7f7f;
+  border-radius: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pub-button{
+  background-color:#33bb8b;
+  color: white;
+  border: solid 1rpx #7f7f7f;
+  border-radius: 10rpx;
+  padding: 10rpx 10rpx;
+  position: fixed; 
+  right: 10rpx;
+}
+.selected{
+  background-color: #6d65cc;
+  color: rgba(255, 255, 255, 1);
+  border:1px solid #6d65cc;
+}
+
+.title1{border-bottom: 7px solid #ededed;margin-top: 20rpx;width: 750rpx;
+  word-break: break-all;
+}
+.title2{display: flex;}
+.image1{height: 340rpx;}
+.image22{width: 160rpx;height: 145rpx;margin: 53rpx 50rpx 53rpx 50rpx; }
+.body{width: 700rpx;height: 100%;word-break: break-all;
+  text-overflow:ellipsis; word-wrap:break-word;margin: 1rpx;}
+.image3{height: 50rpx;margin-top: 10rpx;}
+.font{font-size: 30rpx; font-weight: 500;padding: 10rpx;margin:5rpx 0rpx 0rpx 20rpx;
+  }
+.image4{margin: 10rpx 60rpx 0rpx 500rpx;}
+  .image5{margin: 10rpx 60rpx 0rpx 0rpx;}
+    .image33{margin:5rpx 0rpx 0rpx  200rpx;}
+    .image55{position: absolute;
+      right: 100rpx;}
+.font2{font-size: 30rpx;font-weight: 300;padding-top: 15rpx;padding-left: 5rpx;}
+.body1{width: 720rpx;
+  margin: 0rpx 15rpx 0rpx 15rpx;
+  border-bottom: 2px solid  #ededed; margin-bottom: 10rpx;}
+.topicsimage{height: 150rpx;width: 150rpx; margin: 10rpx;}
+    .imagebinglie{display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+     
+    }
+.boder{background-color: #f0f1f1;
+  border-radius: 5px;
+  width:680rpx;
+  margin: 0rpx 25rpx 5rpx 25rpx;
+  word-break: break-all;
+  padding-bottom: 15rpx;
+}
+
+
+.style{
+  position: fixed;
+  bottom: 0px;
+  width:100%;
+  }
+  .popup{
+    display: flex; 
+    align-items: center;
+    background:rgb(242, 242, 242,1);
+  }
+  .input{
+    width: 480rpx;
+    height: 60rpx; 
+    margin: 30rpx 0rpx 30rpx 10rpx ;
+    background: #fff;
+  }
+  .placeholderStyle{
+    font-size: 26rpx;
+    margin: 0 20rpx;
+  }
+  .buttoner{ 
+    background-color:#33bb8b;
+    color: white;
+    border: solid 1rpx #7f7f7f;
+    border-radius: 10rpx;
+    padding: 10rpx 10rpx;
+    position: fixed; 
+    right: 10rpx;
+  font-size: 25rpx;
+}
+
+ 
+    .anonymous{
+      width: 60rpx;
+      height: 60rpx;
+      margin: 10rpx;
+      color: #7f7f7f;
+      border: solid 1rpx #7f7f7f;
+      border-radius: 30rpx;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25rpx;
+    }
+    .selected{
+      background-color: #6d65cc;
+      color: rgba(255, 255, 255, 1);
+      border:1px solid #6d65cc;
+    }
+.time{
+  margin-top: 25rpx ;
+}

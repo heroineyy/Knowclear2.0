@@ -1,0 +1,5 @@
+<!--pages/person/person.wxml-->
+<view class="chatobject"  bindtap="chatwith" wx:for="{{accounts}}" wx:key="openid" data-openid="{{item.openid}}" data-name="{{item.nickname}}" data-sex="{{item.sex}}">
+   <image mode="widthFix" src="{{item.sex==1?'../../images/man.png':'../../images/woman.png'}}"></image>
+   <view>{{item.nickname}}</view>
+</view>

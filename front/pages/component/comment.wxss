@@ -1,0 +1,56 @@
+.comment{
+  display: flex;
+  flex-direction: column;
+}
+.comment-2{
+  display: flex;
+  flex-direction: row;
+}
+.others{
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+.comment-face{
+  display: block;
+  width: 70rpx;
+  height:70rpx;
+  margin-top:20rpx;
+}
+.name{
+  display: flex;
+  font-size: 20rpx;
+  margin-top:45rpx;
+  width: max-content;
+}
+.huifu{
+  font-size: 20rpx;
+  color:green;
+  margin-top:45rpx;
+  width: 50rpx;
+}
+.tonickname{
+  font-size: 20rpx;
+  margin-top:45rpx;
+}
+.content-time{
+  font-size: 22rpx;
+  display: flex;
+  flex-direction:column;
+  width: 370rpx;
+}
+.content{
+  /* display: block; */
+  word-break: break-all;
+  margin-top:45rpx;
+  margin-left: 5rpx;
+  /* word-break:pre-wrap; */
+  /* width: 375rpx; */
+}
+.comment-time{
+  margin-top: 10rpx;
+  color: #b3b3b4;
+  float:right;
+  margin-left: 375rpx;
+  padding-right: 0;
+}

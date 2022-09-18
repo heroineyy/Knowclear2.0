@@ -1,0 +1,280 @@
+
+  <view class="index-tab">
+  <view wx:for="{{navbar}}" data-idx="{{index}}" class="{{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</view>
+  </view>
+  <view class="index-cons" wx:if="{{hasUserInfo}}">
+    <view class="{{currentTab==0?'chat':'desc'}} ">
+      <swiper class="index-swiper"indicator-dots="{{true}}" 
+          autoplay="{{true}}" circular="{{true}}" >
+        <block wx:for="{{bannerList}}" wx:key="index">
+          <swiper-item>
+          <navigator url='{{item.linkUrl}}'>
+            <image src="{{item.img}}" class="slide-image" ></image>
+            <!-- <image src="{{bannerList1}}" class="slide-image" ></image> -->
+          </navigator>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="index-label">
+        <view class="label-item" wx:for="{{labels_0}}" wx:key="labelId" bindtap="toTag"
+        data-labelId="{{item.labelId}}">
+          <view wx:if="{{item.labelId!==0}}">{{item.name}}</view>
+        </view>
+        <view class="more" bindtap="toMoreLabelChat">更多</view>
+      </view>
+      <view class="divLine"></view>
+        <view class="index-list-item" wx:for="{{topics_chat}}" wx:key="topicId" data-index="index">
+          <view class="labelName" wx:if="{{item.labelName!=='默认'}}">
+            <text decode='true'>&lt;{{item.labelName}} &gt;</text>
+          </view>
+          <view class="text-photo" >
+            <view class="detail" style="padding:20rpx;"bindtap="toGambit" data-topicId="{{item.topicId}}">{{item.content}}</view>
+              <!-- 单张图片 -->
+              <view class="images">
+              <view class="images_1"  wx:if="{{item.imgs.length==1}}">          
+                <image class="image_1" mode="widthFix"  wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{item.imgs}}"></image>
+              </view>
+            </view>
+              <!-- 2,3张图片 -->
+              <view class="images">
+              <view class="images_2" wx:if="{{item.imgs.length>1 && item.imgs.length<=3}}"    wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img">
+                <image class="image_2" src="{{item_img}}" bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{item.imgs}}"></image>
+              </view>
+              </view>
+              <!-- 4张图片 -->
+              <view class="images">
+              <view class="images_4" wx:if="{{item.imgs.length>3 && item.imgs.length<5}}">
+                <image class="image_4" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}" bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{item.imgs}}"></image>
+              </view>
+            </view>
+            <!-- <view class="images"> -->
+              <!-- 5-6张图片 -->
+              <view class="images">
+              <view class="images_5" wx:if="{{item.imgs.length>=5&&item.imgs.length<=6}}">
+                <image class="image_5" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}" bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{item.imgs}}"></image>
+              </view>
+            </view>
+            <!-- 9张图片 -->
+            <view class="images">
+              <view class="images_6" wx:if="{{item.imgs.length>6}}">
+                <image class="image_6" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}" bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{item.imgs}}"></image>
+              </view>
+            </view>
+          </view>
+          <view class="information">
+          <view class="message">
+           <!-- 已经填写性别 -->
+            <view wx:if="{{item.account.sex!==null}}" class="others" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+              <image  class="others" src="{{item.account.sex==1?'../../images/man.png':'../../images/woman.png'}}"/>
+            </view>
+            <!-- 没有填写性别 -->
+            <view wx:if="{{item.account.sex==null}}" class="others" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+              <image  class="others" src="../../images/nosex.png"/>
+            </view>
+            <!-- //匿名 且年级没有填写 且为女生-->
+            <view wx:if="{{item.isAnonymous==1&&item.account.grade==null&&item.account.sex==0}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">某女生</view>
+            </view>
+             <!-- //匿名 且年级没有填写 且为男生-->
+            <view wx:if="{{item.isAnonymous==1&&item.account.grade==null&&item.account.sex==1}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">某男生</view>
+            </view>
+             <!-- //匿名 且年级没有填写 性别没有填写-->
+             <view wx:if="{{item.isAnonymous==1&&item.account.grade==null&&item.account.sex==null}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">某学生</view>
+            </view>
+            <!-- //匿名 但有年级 且为女生-->
+            <view wx:if="{{item.isAnonymous==1&&item.account.grade!==null&&item.account.sex==0}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">{{item.account.grade}}  某女生</view>
+            </view>
+             <!-- //匿名 但有年级 且为男生-->
+             <view wx:if="{{item.isAnonymous==1&&item.account.grade!==null&&item.account.sex==1}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">{{item.account.grade}}  某男生</view>
+            </view>
+            <!-- //匿名 但有年级 无性别-->
+            <view wx:if="{{item.isAnonymous==1&&item.account.grade!==null&&item.account.sex==null}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">{{item.account.grade}}  某学生</view>
+            </view>
+            <!-- //公开 但没有年级 -->
+            <view wx:if="{{item.isAnonymous==0&&item.account.grade==null}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">{{item.account.nickname}}</view>
+            </view>
+            <!-- //公开且有年级 -->
+            <view wx:if="{{item.isAnonymous==0&&item.account.grade!==null}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">{{item.account.grade}}  {{item.account.nickname}}</view>
+            </view>
+            <view class="time">{{aftertime[index]}}</view>
+            <!-- <view class="time">{{aftertime[index]}}</view> -->
+          </view>
+          <view class="prize">
+          <image class="prize-img" src="{{item.upvote==true?'../../images/dianzan2.png':'../../images/dianzan.png'}}" bindtap="clickDianzan_chat" data-curIndex="{{index}}"/>
+          <view class="prize-num">{{item.upvoteNum}}</view>
+          </view>
+          <view class="comment">
+          <image class="comment-img" src="../../images/pinglun.png" bindtap="toGambit" data-topicId="{{item.topicId}}"/>
+            </view>
+          </view>
+        <!-- </view> -->
+       </view>
+    <!-- </scroll-view> -->
+    </view>
+
+    <view class="{{currentTab==1?'business':'desc'}}">
+      <!-- <scroll-view bindscrolltolower="getTopicList_2" scroll-y lower-threshold="250"> -->
+      <view class="index-label">
+        <view class="label-item" wx:for="{{labels_1}}" wx:key="labelId" bindtap="toTag"
+        data-labelId="{{item.labelId}}">
+          <view wx:if="{{item.labelId!==0}}">{{item.name}}</view>
+        </view>
+        <view class="more" bindtap="toMoreLabelChat">更多</view>
+      </view>
+      <view class="divLine"></view>
+        <view class="index-list-item" wx:for="{{topics_business}}" wx:key="topicId" data-index="index">
+          <view class="labelName" wx:if="{{item.labelName!=='默认'}}">
+            <text decode='true'>&lt;{{item.labelName}} &gt;</text>
+          </view>
+          <view class="text-photo" >
+            <view class="detail" style="padding:20rpx;"bindtap="toGambit" data-topicId="{{item.topicId}}">{{item.content}}</view>
+              <!-- 单张图片 -->
+              <view class="images">
+              <view class="images_1"  wx:if="{{item.imgs.length==1}}">          
+                <image class="image_1" mode="widthFix"  wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{item.imgs}}"></image>
+              </view>
+            </view>
+              <!-- 2,3张图片 -->
+              <view class="images">
+              <view class="images_2" wx:if="{{item.imgs.length>1 && item.imgs.length<=3}}"    wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img">
+                <image class="image_2" src="{{item_img}}" bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{item.imgs}}"></image>
+              </view>
+              </view>
+              <!-- 4张图片 -->
+              <view class="images">
+              <view class="images_4" wx:if="{{item.imgs.length==4}}">
+                <image class="image_4" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}" bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{item.imgs}}"></image>
+              </view>
+            </view>
+            <!-- <view class="images"> -->
+              <!-- 多张图片 -->
+              <view class="images"></view>
+              <view class="images_5" wx:if="{{item.imgs.length>=5}}">
+                <image class="image_5" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}" bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{item.imgs}}"></image>
+              </view>
+            </view>
+          <view class="information">
+            <view class="message">
+           <!-- 已经填写性别 -->
+            <view wx:if="{{item.account.sex!==null}}" class="others" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+              <image  class="others" src="{{item.account.sex==1?'../../images/man.png':'../../images/woman.png'}}"/>
+            </view>
+            <!-- 没有填写性别 -->
+            <view wx:if="{{item.account.sex==null}}" class="others" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+              <image  class="others" src="../../images/nosex.png"/>
+            </view>
+            <!-- //匿名 且年级没有填写 且为女生-->
+            <view wx:if="{{item.isAnonymous==1&&item.account.grade==null&&item.account.sex==0}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">某女生</view>
+            </view>
+             <!-- //匿名 且年级没有填写 且为男生-->
+            <view wx:if="{{item.isAnonymous==1&&item.account.grade==null&&item.account.sex==1}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">某男生</view>
+            </view>
+             <!-- //匿名 且年级没有填写 性别没有填写-->
+             <view wx:if="{{item.isAnonymous==1&&item.account.grade==null&&item.account.sex==null}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">某学生</view>
+            </view>
+            <!-- //匿名 但有年级 且为女生-->
+            <view wx:if="{{item.isAnonymous==1&&item.account.grade!==null&&item.account.sex==0}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">{{item.account.grade}}  某女生</view>
+            </view>
+             <!-- //匿名 但有年级 且为男生-->
+             <view wx:if="{{item.isAnonymous==1&&item.account.grade!==null&&item.account.sex==1}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">{{item.account.grade}}  某男生</view>
+            </view>
+            <!-- //匿名 但有年级 无性别-->
+            <view wx:if="{{item.isAnonymous==1&&item.account.grade!==null&&item.account.sex==null}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">{{item.account.grade}}  某学生</view>
+            </view>
+            <!-- //公开 但没有年级 -->
+            <view wx:if="{{item.isAnonymous==0&&item.account.grade==null}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">{{item.account.nickname}}</view>
+            </view>
+            <!-- //公开且有年级 -->
+            <view wx:if="{{item.isAnonymous==0&&item.account.grade!==null}}" class="name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+             <view class="nickname">{{item.account.grade}}  {{item.account.nickname}}</view>
+            </view>
+            <view class="time">{{aftertime1[index]}}</view>
+            <!-- <view class="time">{{aftertime[index]}}</view> -->
+          </view>
+          <view class="prize">
+          <image class="prize-img" src="{{item.upvote==true?'../../images/dianzan2.png':'../../images/dianzan.png'}}" bindtap="clickDianzan_business" data-curIndex="{{index}}"/>
+          <view class="prize-num">{{item.upvoteNum}}</view>
+          </view>
+          <view class="comment">
+          <image class="comment-img" src="../../images/pinglun.png" bindtap="toGambit" data-topicId="{{item.topicId}}"/>
+            </view>
+          </view>
+        <!-- </view> -->
+      </view>   
+      <!-- </scroll-view>    -->
+    </view>
+
+
+    <view class="{{currentTab==2?'consult':'desc'}}">
+      <view class="B">
+<view class="body">
+<view class="text"> 
+<navigator class="text1" url="/pages/consult-line/consult-line?id=0">学校信息</navigator>
+ <image class="logo" mode="heightFix" src="../../images/3.png"></image>
+ </view>
+
+<navigator class="textbody" url="/pages/consult-chat/consult-chat?consult={{consult0[index].consultId}}" wx:for="{{consult0}}">
+<view class="title">{{consult0[index].title}}</view>
+<view class="author"> <image class="logo2" mode="heightFix" src="{{consult0[index].avatar}}"></image>
+{{consult0[index].publisher}}
+</view>
+</navigator>
+
+</view>
+
+<view class="body">
+  <view class="text">
+    <navigator class="text2" url="/pages/consult-line/consult-line?id=1">社团零距离</navigator>
+    <image class="logo" mode="heightFix" src="../../images/4.png"></image>
+  </view>
+  <navigator class="textbody" url="/pages/consult-chat/consult-chat?consult={{consult1[index].consultId}}" wx:for="{{consult1}}">
+<view class="title">{{consult1[index].title}}</view>
+<view class="author"> <image class="logo2" mode="heightFix" src="{{consult1[index].avatar}}"></image>
+{{consult1[index].publisher}}
+</view>
+</navigator>
+</view>
+</view>
+
+<view class="B">
+<view class="body1">
+<view class="text"> <navigator class="text1" url="/pages/consult-line/consult-line?id=2">直通赛证</navigator>
+<image class="logo" mode="heightFix" src="../../images/1.png"></image></view>
+<navigator class="textbody" url="/pages/consult-chat/consult-chat?consult={{consult2[index].consultId}}" wx:for="{{consult2}}">
+<view class="title">{{consult2[index].title}}</view>
+<view class="author"> <image class="logo2" mode="heightFix" src="{{consult2[index].avatar}}"></image>
+{{consult2[index].publisher}}
+</view>
+</navigator>
+
+</view>
+<view class="body1">
+<view class="text"> <navigator class="text1" url="/pages/consult-line/consult-line?id=3">校园招聘</navigator>
+<image class="logo" mode="heightFix" src="../../images/5.png"></image></view>
+
+<navigator class="textbody" url="/pages/consult-chat/consult-chat?consult={{consult3[index].consultId}}" wx:for="{{consult3}}">
+<view class="title">{{consult3[index].title}}</view>
+<view class="author"> <image class="logo2" mode="heightFix" src="{{consult3[index].avatar}}"></image>
+{{consult3[index].publisher}}
+</view>
+</navigator>
+</view>
+</view>
+    </view>
+ 
+    <view class="gotop" bindtap="gotoaction">置顶</view>
+</view> 
