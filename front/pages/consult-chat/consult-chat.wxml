@@ -1,0 +1,89 @@
+
+<view class="title1"> {{consultList[0].title}}
+<text class="body" decode="ture">
+&nbsp; {{consultList[0].content}}</text>
+
+<view  class="imagebinglie">
+<!-- <view  wx:for="{{consultList[0].imgs}}" wx:for-index="idx"> -->
+<!-- <image class='topicsimage' bindtap="previewImage"  data-current="{{consultList[0].imgs[idx]}}" data-url="{{consultList[0].imgs}}" src="{{consultList[0].imgs[idx]}}"/> -->
+ <!-- 单张图片 -->
+ <view class="images">
+              <view class="images_1"  wx:if="{{consultList[0].imgs.length==1}}">          
+                <image class="image_1" wx:for="{{consultList[0].imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"bindtap="previewImage"  data-current="{{item_img}}" data-url="{{consultList[0].imgs}}"></image>
+              </view>
+            </view>
+              <!-- 2,3张图片 -->
+              <view class="images">
+                <view class="images_2"  wx:if="{{consultList[0].imgs.length>=2&&consultList[0].imgs.length<=3}}">          
+                <image class="image_2" wx:for="{{consultList[0].imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"bindtap="previewImage" data-current="{{item_img}}" data-url="{{consultList[0].imgs}}"></image>
+              </view>
+              </view>
+              <!-- 4张图片 -->
+              <view class="images">
+                <view class="images_3"  wx:if="{{consultList[0].imgs.length==4}}">          
+                <image class="image_3" wx:for="{{consultList[0].imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"bindtap="previewImage" data-current="{{item_img}}" data-url="{{consultList[0].imgs}}"></image>
+              </view>
+            </view>
+            <!-- <view class="images"> -->
+              <!-- 5-6张图片 -->
+              <view class="images">
+                <view class="images_5"  wx:if="{{consultList[0].imgs.length>=5&&consultList[0].imgs.length<=6}}">          
+                <image class="image_5" wx:for="{{consultList[0].imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"bindtap="previewImage" data-current="{{item_img}}" data-url="{{consultList[0].imgs}}"></image>
+              </view>
+            </view>
+            <!-- 9张图片 -->
+            <view class="images">
+              <view class="images_6"  wx:if="{{consultList[0].imgs.length>6}}">          
+                <image class="image_6" wx:for="{{consultList[0].imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"bindtap="previewImage" data-current="{{item_img}}" data-url="{{consultList[0].imgs}}"></image>
+              </view>
+            </view>
+<!-- </view> -->
+
+<view class="title2">
+<view class="image4"><image bindtap="cancleupvote" class='image3' wx:if="{{consultList[0].upvote}}" src="../../images/dianzan2.png" mode="heightFix"></image>
+  <image class='image3' bindtap="upvote" wx:else src="../../images/dianzan.png" mode="heightFix"></image>
+  <view class="prize-num">{{consultList[0].upvoteNum}}</view>
+</view>
+
+
+<view class="image5"><image class='image3' bindtap="backfirst" src="../../images/pinglun.png" mode="heightFix"></image></view>
+</view>
+
+<view class="title2">
+  <view class="time">{{consultList[0].gmtCreated}}</view>
+<view class="image33"><image class='image3' src="{{consultList[0].avatar}}" mode="heightFix"></image></view>
+<text class="font" >{{consultList[0].publisher}}</text>
+</view>
+</view>
+
+<view class="body1" wx:for="{{comments}}">
+<text class="body" decode="ture">
+&nbsp;{{comments[index].content}}</text>
+<view class="title2">
+  <view><image class='image3' catchtap="urlto" wx:if="{{comments[index].account.sex==1}}" data-openid="{{comments[index].account.openid}}" data-isAnonymous="{{comments[index].isAnonymous}}" src="../../images/man.png" mode="heightFix"></image>
+    <image class='image3' catchtap="urlto" data-openid="{{comments[index].account.openid}}" data-isAnonymous="{{comments[index].isAnonymous}}" wx:if="{{comments[index].account.sex==0}}" src="../../images/woman.png" mode="heightFix"></image>
+    <image class='image3' catchtap="urlto" data-openid="{{comments[index].account.openid}}" data-isAnonymous="{{comments[index].isAnonymous}}" wx:if="{{comments[index].account.sex===null}}" src="../../images/nosex.png" mode="heightFix"></image>
+</view>
+  <!-- <view class=""><image class='image3' src="/image/9.png" mode="heightFix"></image></view> -->
+  
+<text class="font2" wx:if="{{comments[index].isAnonymous==0}}">{{comments[index].account.nickname}} </text>
+ <text class="font2"  wx:if="{{comments[index].isAnonymous==1 && comments[index].account.sex==0}}" >某女生</text>
+              <text class="font2"  wx:if="{{comments[index].isAnonymous==1 && comments[index].account.sex==1}}" >某男生</text>
+              <text class="font2"  wx:if="{{comments[index].isAnonymous==1 && comments[index].account.sex===null  }}">某学生</text>
+<view class="image55" ><image catchtap="databack"   data-id='{{index}}' class='image3' src="../../images/pinglun.png" mode="heightFix"></image></view>
+</view>
+
+<!-- 二级评论 -->
+<view class="boder">
+<a  comments="{{comments[index].children}}"  bind:listener="ComponentListener"></a>
+</view>
+</view>
+</view>
+<view class='style'>
+       <view class='popup' wx:if="{{show}}">
+        <input class='input' placeholder-class="placeholderStyle"  placeholder="{{isAnonymous==0?'回复'+backname:'回复'}}" bindinput="expInput"></input>
+        <view class="anonymous {{aa==0?'selected':''}}" bindtap='selectNiming'>公开</view>
+        <view class="anonymous {{aa==1?'selected':''}}" bindtap='FselectNiming'>匿名</view>
+        <button class='buttoner' style="width: 100rpx" bindtap="comment" form-type="reset">发送</button>
+        </view>
+      </view>

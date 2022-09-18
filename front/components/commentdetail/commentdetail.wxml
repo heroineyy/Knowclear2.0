@@ -1,0 +1,29 @@
+<!--components/commentdetail/commentdetail.wxml-->
+<view style="margin-left: 15px">
+        <view
+                wx:for="{{comments}}"  
+                style="margin-top: 10px;"
+                wx:key="*this"
+        ><!--循环的数据-->
+   <view style="margin-top: 10px" bindtap="selecttap" data-id="{{index}}">
+
+<image catchtap="toOthers" data-openid="{{comments[index].account.openid}}" data-isAnonymous="{{comments[index].isAnonymous}}" class='image3' wx:if="{{comments[index].account.sex==1}}"  src="../../images/man.png" mode="heightFix"  catchtap="toOthers" data-openid="{{comments[index].account.openid}}" data-isAnonymous="{{comments[index].isAnonymous}}"></image>
+<image class='image3' catchtap="toOthers" data-openid="{{comments[index].account.openid}}" data-isAnonymous="{{comments[index].isAnonymous}}" wx:if="{{comments[index].account.sex==0}}" src="../../images/woman.png" mode="heightFix"></image>  
+    <image catchtap="toOthers" data-openid="{{comments[index].account.openid}}" data-isAnonymous="{{comments[index].isAnonymous}}" class='image3' wx:if="{{comments[index].account.sex===null}}"  src="../../images/nosex.png" mode="heightFix"  catchtap="toOthers" data-openid="{{comments[index].account.openid}}" data-isAnonymous="{{comments[index].isAnonymous}}"></image>
+
+              <text class="text" wx:if="{{comments[index].isAnonymous==0}}" > {{comments[index].account.nickname}} : {{comments[index].content}} </text>
+              <text class="text"  wx:if="{{comments[index].isAnonymous==1 && comments[index].account.sex==0}}" >某女生：{{comments[index].content}}</text>
+              <text class="text"  wx:if="{{comments[index].isAnonymous==1 && comments[index].account.sex==1}}" >某男生：{{comments[index].content}}</text>
+              <text class="text"  wx:if="{{comments[index].isAnonymous==1 && comments[index].account.sex===null}}">某学生：{{comments[index].content}}</text>
+                    </view>
+<!--再对于item的replyList进行循环，然后把循环后的item传给tree这个组件-->
+              <tree wx:for="{{comments[index].children}}" wx:for-index="idx" last="{{comments[index]}}" node="{{comments[index].children[idx]}}"    bind:listener="ComponentListener"></tree>
+        </view>
+    </view>
+
+    <view class='style'>
+       <view class='popup' wx:if="{{show}}">
+        <input class='input' placeholder-class="placeholderStyle" placeholder='想说的话......' bindinput="expInput"></input>
+        <button class='button' style="width: 170rpx" bindtap="comment"  >发送</button>
+        </view>
+      </view>

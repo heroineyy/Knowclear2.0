@@ -1,0 +1,12 @@
+<view class="pub-wrap">
+  <view class="pub-text">发表</view>
+</view>
+<view class="input-wrap">
+  <textarea placeholder="文本" name="" id="" cols="30" rows="10"></textarea>
+</view>
+<view class="image-wrap">
+  <view class="one-image">
+    <image class="image-choose"src="../../images/dianzan.png"></image>
+    <image class="image-del" src="../../images/pinglun.png"></image>
+  </view>
+</view>

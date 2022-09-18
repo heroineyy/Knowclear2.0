@@ -1,0 +1,68 @@
+
+<!-- 头部导航 -->
+<view  class="header">
+<navigator  class="container1">
+<text>闲聊</text>
+</navigator>
+<navigator class="container2">
+事务
+</navigator>
+<navigator class="container3">
+<text>资讯</text>
+<view class="line"></view>
+</navigator>
+</view>
+<view class="B">
+<view class="body">
+<view class="text"> 
+<navigator class="text1" url="/pages/consult-line/consult-line?id=0">官方公告</navigator>
+ <image class="logo" mode="heightFix" src="cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/image3/3.png"></image>
+ </view>
+
+<navigator class="textbody" url="/pages/consult-chat/consult-chat?consult={{consult0[index].consultId}}" wx:for="{{consult0}}">
+<view class="title">{{consult0[index].title}}</view>
+<view class="author"> <image class="logo2" mode="heightFix" src="{{consult0[index].avatar}}"></image>
+{{consult0[index].publisher}}
+</view>
+</navigator>
+
+</view>
+
+<view class="body">
+  <view class="text">
+    <navigator class="text2" url="/pages/consult-line/consult-line?id=1">社团零距离</navigator>
+    <image class="logo" mode="heightFix" src="cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/image3/4.png"></image>
+  </view>
+  <navigator class="textbody" url="/pages/consult-chat/consult-chat?consult={{consult1[index].consultId}}" wx:for="{{consult1}}">
+<view class="title">{{consult1[index].title}}</view>
+<view class="author"> <image class="logo2" mode="heightFix" src="{{consult1[index].avatar}}"></image>
+{{consult1[index].publisher}}
+</view>
+</navigator>
+</view>
+</view>
+
+<view class="B">
+<view class="body1">
+<view class="text"> <navigator class="text1" url="/pages/consult-line/consult-line?id=2">直通赛证</navigator>
+<image class="logo" mode="heightFix" src="cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/image3/1.png"></image></view>
+<navigator class="textbody" url="/pages/consult-chat/consult-chat?consult={{consult2[index].consultId}}" wx:for="{{consult2}}">
+<view class="title">{{consult2[index].title}}</view>
+<view class="author"> <image class="logo2" mode="heightFix" src="{{consult2[index].avatar}}"></image>
+{{consult2[index].publisher}}
+</view>
+</navigator>
+
+</view>
+<view class="body1">
+<view class="text"> <navigator class="text1" url="/pages/consult-line/consult-line?id=3">校园招聘</navigator>
+<image class="logo" mode="heightFix" src="cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/image3/5.png"></image></view>
+
+<navigator class="textbody" url="/pages/consult-chat/consult-chat?consult={{consult3[index].consultId}}" wx:for="{{consult3}}">
+<view class="title">{{consult3[index].title}}</view>
+<view class="author"> <image class="logo2" mode="heightFix" src="{{consult3[index].avatar}}"></image>
+{{consult3[index].publisher}}
+</view>
+</navigator>
+</view>
+</view>

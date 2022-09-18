@@ -1,0 +1,171 @@
+<view class="detail">
+    <view class="top">
+      <!-- <view class="others" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+        <image src="{{topic.account.sex==1?'../../images/man.png':'../../images/woman.png'}}"></image>
+      </view> -->
+      <!-- 已经填写性别 -->
+      <view wx:if="{{topic.account.sex!==null}}" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+              <image  class="others" src="{{topic.account.sex==1?'../../images/man.png':'../../images/woman.png'}}"/>
+            </view>
+            <!-- 没有填写性别 -->
+            <view wx:if="{{topic.account.sex==null}}" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+              <image  class="others" src="../../images/nosex.png"/>
+            </view>
+      <!-- <view class="name" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+        <view>{{topic.account.nickname}}</view>
+        <view>{{topic.isAnonymous==1?'':topic.account.grade}}</view>
+      </view> -->
+       <!-- //匿名 且年级没有填写 且为女生-->
+       <view wx:if="{{topic.isAnonymous==1&&topic.account.grade==null&&topic.account.sex==0}}" class="name" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+             <view class="nickname">某女生</view>
+            </view>
+             <!-- //匿名 且年级没有填写 且为男生-->
+            <view wx:if="{{topic.isAnonymous==1&&topic.account.grade==null&&topic.account.sex==1}}" class="name" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+             <view class="nickname">某男生</view>
+            </view>
+             <!-- //匿名 且年级没有填写 性别没有填写-->
+             <view wx:if="{{topic.isAnonymous==1&&topic.account.grade==null&&item.account.sex==null}}" class="name" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+             <view class="nickname">某学生</view>
+            </view>
+            <!-- //匿名 但有年级 且为女生-->
+            <view wx:if="{{topic.isAnonymous==1&&topic.account.grade!==null&&topic.account.sex==0}}" class="name" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+             <view class="nickname">{{topic.account.grade}}  某女生</view>
+            </view>
+             <!-- //匿名 但有年级 且为男生-->
+             <view wx:if="{{topic.isAnonymous==1&&topic.account.grade!==null&&topic.account.sex==1}}" class="name" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+             <view class="nickname">{{topic.account.grade}}  某男生</view>
+            </view>
+            <!-- //匿名 但有年级 无性别-->
+            <view wx:if="{{topic.isAnonymous==1&&topic.account.grade!==null&&topic.account.sex==null}}" class="name" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+             <view class="nickname">{{topic.account.grade}}  某学生</view>
+            </view>
+            <!-- //公开 但没有年级 -->
+            <view wx:if="{{topic.isAnonymous==0&&topic.account.grade==null}}" class="name" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+             <view class="nickname">{{topic.account.nickname}}</view>
+            </view>
+            <!-- //公开且有年级 -->
+            <view wx:if="{{topic.isAnonymous==0&&topic.account.grade!==null}}" class="name" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
+             <view class="nickname">{{topic.account.grade}}  {{topic.account.nickname}}</view>
+            </view>
+      <view class="type" wx:if="{{topic.labelName!=='默认'}}"> 
+        <text decode='true'>&lt;{{topic.labelName}}&gt; </text>
+      </view>
+    </view>
+
+      <view class="center">
+        <view class="detail-text">{{topic.content}}</view>
+         <!-- 单张图片 -->
+         <view class="images">
+              <view class="images_1"  wx:if="{{topic.imgs.length==1}}">          
+                <image class="image_1" mode="widthFix" wx:for="{{topic.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{topic.imgs}}"></image>
+              </view>
+            </view>
+              <!-- 2,3张图片 -->
+              <view class="images">
+              <view class="images_2" wx:if="{{topic.imgs.length>1 && topic.imgs.length<=3}}"    wx:for="{{topic.imgs}}" wx:key="index" wx:for-item="item_img">
+                <image class="image_2" src="{{item_img}}" bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{topic.imgs}}"></image>
+              </view>
+              </view>
+              <!-- 4张图片 -->
+              <view class="images">
+              <view class="images_4" wx:if="{{topic.imgs.length==4}}">
+                <image class="image_4" wx:for="{{topic.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}" bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{topic.imgs}}"></image>
+              </view>
+            </view>
+            <!-- <view class="images"> -->
+              <!-- 多张图片 -->
+              <view class="images">
+              <view class="images_5" wx:if="{{topic.imgs.length>=5&& topic.imgs.length<=6}}">
+                <image class="image_5" wx:for="{{topic.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}" bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{topic.imgs}}"></image>
+              </view>
+            </view>
+            <view class="images">
+              <view class="images_6" wx:if="{{topic.imgs.length>=7}}">
+                <image class="image_6" wx:for="{{topic.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}" bindtap="previewImage" data-src="{{item_img}}" data-index="{{index}}" data-images="{{topic.imgs}}"></image>
+              </view>
+            </view>
+      </view>
+
+      <view class="low">
+        <view class="time">{{topic.gmtCreated}}</view>
+        <view class="prize-comment">
+          <view class="prize">
+            <image class="prize-img"src="{{topic.upvote==true?'../../images/dianzan2.png':'../../images/dianzan.png'}}" bindtap="clickDianzan" data-topicId="{{topic.topicId}}"></image>
+            <view class="prize-num">{{topic.upvoteNum}}</view>
+          </view>      
+          <!-- 点击去评论 -->
+          <view class="comment"  >
+            <image class="comment-img"  catchtap="backfirst" src="../../images/pinglun.png" ></image>
+        </view>
+      </view>
+</view>
+</view>
+
+<!-- <view class="comment-box"> 
+  <view class="comment-one" wx:for="{{comments}}" wx:key="index">
+    <view class="comment-text">{{item.content}}</view>
+    <view class="person-reply">
+      <view class="comment-person">
+        <view bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+          <image class="comment-face" src="{{item.account.sex==1?'../../images/man.png':'../../images/woman.png'}}"></image>
+        </view>
+        <view class="comment-name" bindtap="toOthers" data-openid="{{item.account.openid}}" data-isAnonymous="{{item.isAnonymous}}">
+        <view>{{item.account.nickname}}</view>
+        <view>{{item.isAnonymous==1?'':item.account.grade}}</view>
+        </view>
+      </view>
+ 
+      <view class="reply">
+        <image class="reply-logo" src="../../images/pinglun.png"></image>
+      </view>
+    </view>
+    <view class="comment-children" wx:if="{{item.children.length!==0}}">
+      <view class="comment-children-detail" wx:for="{{item.children}}" wx:for-item="item_children" wx:key="index" >
+        <image class="comment-face" bindtap="toOthers" data-openid="{{item_children.account.openid}}" data-isAnonymous="{{item_children.isAnonymous}}" src="{{item_children.account.sex==1?'../../images/man.png':'../../images/woman.png'}}"></image>
+        <view class="comment-children-name">{{item_children.account.nickname}}:</view>
+        <view class="comment-children-text">{{item_children.content}}</view>
+      </view>
+      <!-- <view class="comment-children-reply" wx:if="{{item.children.children.length!==0}}">
+        <view class="comment-children-detail" wx:for="{{item.children.children}}" wx:for-item="item_children" wx:key="index" >
+        <image class="comment-face" bindtap="toOthers" data-openid="{{item_children.children.account.openid}}" data-isAnonymous="{{item_children.children.isAnonymous}}" src="{{item_children.children.account.sex==1?'../../images/man.png':'../../images/woman.png'}}" ></image>
+        <view class="comment-children-reply-name">{{item_children.children.account.nickname}}</view>
+        <view class="huifu">回复</view>
+        <view class="comment-children-reply-name">贝塔:</view>
+        <view class="comment-children-text">哈哈哈哈哈哈哈</view>
+      </view> 
+      </view>
+    </view>
+    <view class="comment-divline"></view>
+  </view> -->
+<view class="comment-box">
+<view class="body1" wx:for="{{comments}}">
+<text class="body" decode="ture">
+&nbsp;{{comments[index].content}}</text>
+<view class="title2">
+  <view><image class='image3' catchtap="urlto" wx:if="{{comments[index].account.sex==1}}" data-openid="{{comments[index].account.openid}}" data-isAnonymous="{{comments[index].isAnonymous}}" src="../../images/man.png" mode="heightFix"></image>
+    <image class='image3' catchtap="urlto" data-openid="{{comments[index].account.openid}}" data-isAnonymous="{{comments[index].isAnonymous}}" wx:if="{{comments[index].account.sex==0}}" src="../../images/woman.png" mode="heightFix"></image>
+    <image class='image3' catchtap="urlto" data-openid="{{comments[index].account.openid}}" data-isAnonymous="{{comments[index].isAnonymous}}" wx:if="{{comments[index].account.sex===null}}" src="../../images/nosex.png" mode="heightFix"></image>
+</view>
+  <!-- <view class=""><image class='image3' src="/image/9.png" mode="heightFix"></image></view> -->
+  
+<text class="font2" wx:if="{{comments[index].isAnonymous==0}}">{{comments[index].account.nickname}} </text>
+ <text class="font2"  wx:if="{{comments[index].isAnonymous==1 && comments[index].account.sex==0}}" >某女生</text>
+              <text class="font2"  wx:if="{{comments[index].isAnonymous==1 && comments[index].account.sex==1}}" >某男生</text>
+              <text class="font2"  wx:if="{{comments[index].isAnonymous==1 && comments[index].account.sex===null  }}">某学生</text>
+<view class="image55" ><image catchtap="databack"   data-id='{{index}}' class='image3' src="../../images/pinglun.png" mode="heightFix"></image></view>
+</view>
+<!-- 二级评论 -->
+<view class="boder">
+<a  comments="{{comments[index].children}}"  bind:listener="ComponentListener"></a>
+</view>
+</view>
+</view>
+<view class='style'>
+       <view class='popup' wx:if="{{show}}" >
+        <input class='input' placeholder-class="placeholderStyle"  placeholder="{{isAnonymous==0?'回复'+backname:'回复'}}" bindinput="expInput" ></input>
+        <view class="anonymous {{aa==0?'selected':''}}" bindtap='selectNiming'>公开</view>
+        <view class="anonymous {{aa==1?'selected':''}}" bindtap='FselectNiming'>匿名</view>
+        <button class='buttoner' style="width: 100rpx" bindtap="comment" form-type="reset">发送</button>
+        </view>
+</view>
+

@@ -1,0 +1,29 @@
+.header{width: 750rpx;height: 120rpx;border: 1px  solid gray;display: flex; }
+.container1{padding: 35rpx 75rpx 35rpx 100rpx;color: gray; }
+.container2{padding: 35rpx 75rpx 35rpx 100rpx;color: gray; }
+.container3{padding: 35rpx 75rpx 35rpx 100rpx;color: gray;  
+  border-bottom: 2px solid black; }
+  .underline{ text-decoration:underline  solid black; }
+  .body{width: 300rpx;height: 380rpx;border: 1px  solid #f2f2f2; margin: 60rpx 30rpx 0rpx 40rpx;}
+.B{display: flex}
+.body1{width: 300rpx;height: 380rpx;border: 1px  solid#f2f2f2;  margin: 60rpx 30rpx 0rpx 40rpx;}
+  .text{width: 300rpx; height: 80rpx; border-bottom: 1px solid #777777; display: flex;}
+  .text1{text-align: center;font-size: 40rpx;margin: 20rpx 10rpx 20rpx 50rpx;}
+.title{
+  font-size: 30rpx;
+}
+.author{ font-size: 30rpx; text-align: right;  }
+.textbody{
+  width: 300rpx; height: 100rpx;border-bottom: 1px solid #ededed;line-height:1.4em; 
+}
+.logo{
+  height: 45rpx;
+  margin: 25rpx 10rpx 20rpx 0rpx;
+
+}
+.logo2{
+  height: 30rpx;
+  margin: 20rpx 10rpx 0rpx 0rpx;
+  
+}
+.text2{text-align: center;font-size: 40rpx;margin: 20rpx 0rpx 20rpx 30rpx;}

@@ -1,0 +1,103 @@
+/* pages/school/school.wxss */
+
+/* 设置页面背景色 */
+page{
+    background-color: #F6F6F6;
+}
+
+/* 设置图片和选项纵向排列 */
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+/* 图片格式设置 */
+.tip{
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* 学校信息提示 */
+.tipschool{
+    display: flex;
+    flex-direction: column;
+
+
+    background-color: #ffffff;
+    border-radius: 50rpx;
+
+    /* 控制选项之间的上下边距 */
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+
+    /* 控制选项内部的白色边距 */
+    padding-left: 35rpx;
+    padding-right: 35rpx;
+    padding-top: 15rpx;
+    padding-bottom: 15rpx;
+
+}
+
+/* 学校名字展示 */
+.name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40rpx;
+    color: #e5e5e5;
+    font-weight: bold;
+}
+
+/* 选项总模块 */
+.choice{
+    display: flex;
+    flex-direction: column;
+    
+    /* 使选项左右对齐图片边缘 */
+    margin-left: 45rpx;
+    margin-right: 45rpx;
+   
+}
+
+/* 单个选项的排版 */
+.school{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #ffffff;
+    border-radius: 50rpx;
+
+    /* 控制选项之间的上下边距 */
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+
+    /* 控制选项内部的白色边距 */
+    padding-left: 35rpx;
+    padding-right: 35rpx;
+    padding-top: 15rpx;
+    padding-bottom: 15rpx;
+
+}
+
+/* 学校名 */
+.schoolname{
+    font-size: 40rpx;
+    color: #FE7C16;
+    font-weight: bold;
+}
+
+/* 选择按钮 */
+.btn{
+    background-color: #FE7C16;
+
+    /* 字体样式 */
+    color: #ffffff;
+    font-size: 30rpx;
+    font-weight: bold;
+    border-radius: 35rpx;
+
+    /* 按钮大小 */
+    padding: 15rpx;
+}

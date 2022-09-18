@@ -1,0 +1,60 @@
+/* pages/chat/chat.wxss */
+
+/* 上方创建小屋图标 */
+.create{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 30rpx;
+    margin-bottom: 30rpx;
+    border-radius: 20rpx;
+    padding: 30rpx;
+
+    background-color: #DEBD8A;
+    
+}
+/* 创建属于自己的小屋文字部分 */
+.createTagText{
+    display: flex;
+    flex-direction: column;
+    /* 字体 */
+    color: #67481A;
+    font-size: 35rpx;
+    font-weight: bold;
+}
+
+/* 小屋展示文字部分 */
+.TagText{
+    display: flex;
+    flex-direction: column;
+
+    margin: 10rpx;
+    /* 字体 */
+    font-weight: bold;
+}
+
+/* 小屋展示板块 */
+.tags{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    height: 100%;
+}
+
+/* 一条小屋展示 */
+.aTag{
+
+    display: flex;
+    align-items: center;
+
+    padding-left: 30rpx;
+
+    border-bottom: 5rpx solid #f5f5f5;
+
+}
+
+
+
