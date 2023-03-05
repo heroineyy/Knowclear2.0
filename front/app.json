@@ -22,13 +22,14 @@
     "pages/publish/release",
     "pages/search/search",
     "pages/setschool/setschool",
-    "pages/tag/tag"
+    "pages/tag/tag",
+    "pages/demo/demo"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#000",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "knowclear",
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "onReachBottomDistance":70
   },
   "style": "v2",

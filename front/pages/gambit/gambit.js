@@ -86,6 +86,7 @@ Page({
       url: '/pages/others/others?openid=' + e.currentTarget.dataset.openid + '&isAnonymous=' + e.currentTarget.dataset.isanonymous,
     })
   },
+  //点赞
   clickDianzan(e) {
     console.log(e, '当前点赞话题id')
     // var index=e.currentTarget.dataset.curindex;
@@ -151,6 +152,7 @@ Page({
       }
     }
   },
+  //获取评论
   getComments() {
     var that = this;
     wx.request({
@@ -164,12 +166,6 @@ Page({
         that.setData({
           comments: res.data.comments
         })
-
-        // for (var i = 0; i < res.data.comments.length; i++){
-        //   that.setData({
-        //     ["commentsChildren[" + i + "]"]:res.data.comments[i]
-        //   })
-        // }
       },
       fail: () => {
         console.log("获取话题评论失败")
@@ -184,6 +180,7 @@ Page({
     })
     console.log(this.content)
   },
+  //发布评论
   pubComment() {
     var that = this;
     if (that.data.content == '') {
@@ -246,16 +243,19 @@ Page({
       })
     }
   },
+
   selectNiming(e) {
     this.setData({
       aa: 0
     })
   },
+
   FselectNiming() {
     this.setData({
       aa: 1
     })
   },
+
   ComponentListener(e) {
     let info = e.detail;
     this.setData({
@@ -272,12 +272,14 @@ Page({
     })
     console.log(this.data.isAnonymous)
   },
+
   cleanInput: function () {
     var setMessage = {
       clean: that.content
     }
     this.setData(setMessage)
   },
+
   toComments(e) { //一级评论
     console.log(e.currentTarget.dataset, '当前topicId')
     this.setData({
@@ -297,6 +299,7 @@ Page({
       placeholder: '回复' + tonickname
     })
   },
+
   tapItem: function (e) { //回复二级评论
     console.log(e)
     var tonickname = e.detail.tonickname;
@@ -309,6 +312,7 @@ Page({
       placeholder: '回复' + tonickname
     })
   },
+
   databack: function (e) {
        const info=wx.getStorageSync('complete_info');
         const hasuserinfo=wx.getStorageSync('hasuserinfo');
@@ -349,7 +353,7 @@ Page({
             wx.showToast({
               title: 'peace&love',
               icon: 'none',
-              duration: 3000,
+              duration: 2000,
             })
             console.log("safe1:", this.data.safe);
           } else {
@@ -386,7 +390,7 @@ Page({
     wx.showToast({
       title: '内容检测中，请稍后。。。',
       icon: 'none',
-      duration: 3000,
+      duration: 1000,
     })
     that.sensitive();
     setTimeout(function () {
@@ -439,21 +443,6 @@ Page({
   }
   },
 
-
-
-  // getComponentData: function (e) {
-  //   var parent=e.currentTarget.dataset.parent;
-  //   console.log(e)
-  //   // console.log('要回复的人: ' + e.currentTarget.dataset);
-  //   this.setData({
-  //     parent:parent
-  //   })
-  //   // this.triggerEvent('myEvent', {tonickname: tonickname,tocommentid:tocommentid,topicid:topicid }, { bubbles: true, composed: true });
-  //   // // this.triggerEvent()
-  // },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   urlto(e) {
     wx.navigateTo({
       url: '/pages/others/others?openid=' + e.currentTarget.dataset.openid + '&isAnonymous=' + e.currentTarget.dataset.isanonymous,

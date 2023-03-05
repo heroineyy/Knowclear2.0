@@ -5,6 +5,20 @@ var chats = [];
 var windowWidth = wx.getSystemInfoSync().windowWidth;
 var windowHeight = wx.getSystemInfoSync().windowHeight;
 var keyHeight = 0;
+var toView = '';
+
+function initData(that) {
+  that.setData({
+    account: options
+  });
+  that.getchatlist();
+  that.getCurrentUserInfo(); 
+  wx.setNavigationBarTitle({
+    title: options.name,
+  })    
+}
+
+
 
 Page({
   data: {
@@ -16,16 +30,15 @@ Page({
     "profile": {},
     //从上一个页面获取的聊天对象信息
     account: {},
-    content:''
+    content:'',
+    toView:''
   },
   //页面加载函数
   onLoad: function (options) {
-    this.setData({
-      account: options
-    });
-    this.getchatlist();
-    this.getCurrentUserInfo();
+    initData(this);
   },
+
+
 
   //获取聊天信息
   getchatlist() {
@@ -87,7 +100,7 @@ Page({
       toView: 'msg-' + (chats.length - 1),
       inputBottom: keyHeight + 'px'
     })
-    //计算msg高度
+    // 计算msg高度
     // calScrollHeight(this, keyHeight);
 
   },

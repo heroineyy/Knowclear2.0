@@ -16,6 +16,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         this.setFieldValByName("gmtModified", new Date(), metaObject);
     }
 
+
     @Override
     public void updateFill(MetaObject metaObject) {
         this.setFieldValByName("gmtModified", new Date(), metaObject);

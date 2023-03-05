@@ -1,5 +1,6 @@
 var app = getApp();
 var isPreview
+
 function getDateDiff(dateTime) {
   let dateTimeStamp = new Date(dateTime).getTime();
   let result = '';
@@ -38,6 +39,7 @@ function getDateDiff(dateTime) {
   return result;
 };
 let resultData = [];
+
 Page({
   data: {
     //当前导航栏
@@ -79,88 +81,88 @@ Page({
   onShow() {
     this.setData({
       hasUserInfo: wx.getStorageSync('hasuserinfo'),
-      
-    })  
+
+    })
     //若为图片预览则不重新加载页面
-    if(this.data.isPreview){
+    if (this.data.isPreview) {
       this.setData({
-        isPreview:false
+        isPreview: false
       })
       return;
-    }else{
-    if (wx.getStorageSync('hasuserinfo') == true) {
-      //切换了学校重新加载
-     if (wx.getStorageSync('hasChangeSchool') == 'true'){
-      this.getBannerList();
-      this.setData({
-        pageNum: 1,
-        topics_chat: [],
-        pageNum1: 1,
-        topics_business: [],
-        currentTab: 0
-      })
-      console.log("切换学校成功")
-      this.getTopicList_0(); //获取闲聊页面话题
-      this.getLabelList_0(); //获取闲聊热度标签
-      this.getTopic();
-     }  
-      //发布话题后更新话题
-     if(wx.getStorageSync('hasPublish') == 'true'){
-      this.setData({
-        pageNum: 1,
-        topics_chat: []
-      })
-      this.getTopicList_0(); //获取闲聊页面话题
-     }
-     //创建小屋后更新标签
-     if(wx.getStorageSync('hasAddLabel') == true){
-      this.setData({
-        labels_0: []
-      })
-      this.getLabelList_0(); //获取闲聊页面话题
-     }
-    }else{              //必须先登录
-      wx.showToast({
-        title: '请先登录',
-        icon: 'none',
-        duration: 2000, //持续的时间
-        success: function () {
-          setTimeout(function () {
-            wx.switchTab({
-              url: '/pages/mine/mine',
-            })
-          }, 500);
-        },
-      })
-    }
-    
-    //闲聊页面点赞更新
-    for (var i = 0; i < this.data.topics_chat.length; i++) {
-      if (this.data.topicid_index == this.data.topics_chat[i].topicId) {
-        var up = 'topics_chat[' + i + '].upvote';
-        var upnum = 'topics_chat[' + i + '].upvoteNum'
-        this.setData({
-          [up]: this.data.message,
-          [upnum]: this.data.upvotenum
-        });
-        break;
+    } else {
+      if (wx.getStorageSync('hasuserinfo') == true) {
+        //切换了学校重新加载
+        if (wx.getStorageSync('hasChangeSchool') == 'true') {
+          this.getBannerList();
+          this.setData({
+            pageNum: 1,
+            topics_chat: [],
+            pageNum1: 1,
+            topics_business: [],
+            currentTab: 0
+          })
+          console.log("切换学校成功")
+          this.getTopicList_0(); //获取闲聊页面话题
+          this.getLabelList_0(); //获取闲聊热度标签
+          this.getTopic();
+        }
+        //发布话题后更新话题
+        if (wx.getStorageSync('hasPublish') == 'true') {
+          this.setData({
+            pageNum: 1,
+            topics_chat: []
+          })
+          this.getTopicList_0(); //获取闲聊页面话题
+        }
+        //创建小屋后更新标签
+        if (wx.getStorageSync('hasAddLabel') == true) {
+          this.setData({
+            labels_0: []
+          })
+          this.getLabelList_0(); //获取闲聊页面话题
+        }
+      } else { //必须先登录
+        wx.showToast({
+          title: '请先登录',
+          icon: 'none',
+          duration: 2000, //持续的时间
+          success: function () {
+            setTimeout(function () {
+              wx.switchTab({
+                url: '/pages/mine/mine',
+              })
+            }, 500);
+          },
+        })
       }
-    };
-    //事务页面点赞更新
-    for (var i = 0; i < this.data.topics_business.length; i++) {
-      if (this.data.topicid_index == this.data.topics_business[i].topicId) {
-        var up = 'topics_business[' + i + '].upvote';
-        var upnum = 'topics_business[' + i + '].upvoteNum'
-        this.setData({
-          [up]: this.data.message,
-          [upnum]: this.data.upvotenum
-        });
-        break;
-      }
-    };
 
-   
-  }
+      //闲聊页面点赞更新
+      for (var i = 0; i < this.data.topics_chat.length; i++) {
+        if (this.data.topicid_index == this.data.topics_chat[i].topicId) {
+          var up = 'topics_chat[' + i + '].upvote';
+          var upnum = 'topics_chat[' + i + '].upvoteNum'
+          this.setData({
+            [up]: this.data.message,
+            [upnum]: this.data.upvotenum
+          });
+          break;
+        }
+      };
+      //事务页面点赞更新
+      for (var i = 0; i < this.data.topics_business.length; i++) {
+        if (this.data.topicid_index == this.data.topics_business[i].topicId) {
+          var up = 'topics_business[' + i + '].upvote';
+          var upnum = 'topics_business[' + i + '].upvoteNum'
+          this.setData({
+            [up]: this.data.message,
+            [upnum]: this.data.upvotenum
+          });
+          break;
+        }
+      };
+
+
+    }
   },
   // 事件处理函数
   bindViewTap() {
@@ -340,9 +342,9 @@ Page({
   },
   //图片预览
   previewImage(e) {
-    var that=this;
+    var that = this;
     that.setData({
-      isPreview:true
+      isPreview: true
     })
     let current = e.currentTarget.dataset.src;
     console.log(e)
@@ -670,17 +672,17 @@ Page({
     });
   },
 
-    //页面置顶
-    gotoaction(){
-      if(wx.pageScrollTo){
-        wx.pageScrollTo({
-          scrollTop: 0,
-        })
-      }else{
-        wx.showModal({
-          title:'提示',
-          content:'hhhh'
-        })
-      }
-    },
+  //页面置顶
+  gotoaction() {
+    if (wx.pageScrollTo) {
+      wx.pageScrollTo({
+        scrollTop: 0,
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: 'hhhh'
+      })
+    }
+  },
 })

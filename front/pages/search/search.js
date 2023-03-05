@@ -1,6 +1,5 @@
 // pages/dom2/dom2.js
 Page({
-
   /**
    * 页面的初始数据
    */

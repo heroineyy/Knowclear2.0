@@ -330,6 +330,6 @@
   line-height: 66rpx;
   color: #fff;
   text-align: center;
-  border-radius: 80%;
+  border-radius: 10rpx;
 
 }

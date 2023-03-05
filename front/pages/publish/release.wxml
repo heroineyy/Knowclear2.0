@@ -4,8 +4,6 @@
     <button class="chooseAhouse" style="width:auto;height: auto;" 
    bindtap="choose" >选择小屋</button>
 </view>
-
-
 <form bindsubmit="submitEvent">
 <!-- 输入文字和图片 -->
  <view class="inputHouse">
@@ -21,7 +19,7 @@
             <image src="{{item}}" class="upImage" mode="widthFix" bindtap="previewImage" data-src="{{item}}"></image>
             <image class="delete" bindtap="delete" src="cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/delete.png" data-id="{{index}}"></image>
         </view>
-        <image wx:if="{{upImage.length < 9}}" src="cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/chooseApicture.png" class="upImage" bindtap="uploadImg"></image>
+        <image wx:if="{{upImage.length < 9}}" src="../../images/chooseApicture.png" class="upImage" bindtap="uploadImg"></image>
     </view>
 </view>
 </view>
@@ -73,8 +71,7 @@
 
 <!-- 发布按钮 -->
 <view class="release" >
-    <button class="release"   form-type="submit" 
-           >发 布</button>
+    <button class="release"   form-type="submit" >发 布</button>
 </view>
 <!-- <view wx:if="{{mycontent!==''}}" class="button1">发 布</view>
 <view wx:if="{{mycontent==''}}" class="button2">发 布</view> -->

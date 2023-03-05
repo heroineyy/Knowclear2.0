@@ -14,7 +14,6 @@
                 <view class="weui-search-bar__box">
                    <icon class="weui-icon-search_in-box"  type="search" size="15" bindtap="doSearch" ></icon>
                     <input type="text" class="weui-search-bar__input" placeholder="假期开始了" confirm-type="search" bindinput="expInput" bindconfirm='doSearch'/>
-                  
                 </view>
             </view>
         </view>

@@ -58,13 +58,15 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
             HashMap mapAccessToken = gson.fromJson(accessTokenInfo, HashMap.class);
             String session_key = (String) mapAccessToken.get("session_key");
             String openid = (String) mapAccessToken.get("openid");
-            System.out.println(openid);
+            System.out.println("openid:"+openid);
             //把扫描人信息添加数据库里面
             //判断数据表里面是否存在相同微信信息，根据openid判断
+            // todo:下面的代码好像存在冗余哟
             QueryWrapper<Account> userWrapper = new QueryWrapper<>();
             userWrapper.eq("openid", openid);
-            System.out.println(openid);
-            String token = JwtUtils.getJwtToken(openid, session_key);
+            JwtUtils  jwtUtil = new JwtUtils();
+            String token = jwtUtil.getJwtToken(openid, session_key);
+            System.out.println("token:"+token);
             Account account = accountMapper.selectById(openid);
             Map<String,Object> info=new HashMap<>();
             if (account==null) {//表没有相同微信数据，进行添加
@@ -80,7 +82,6 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> impl
             }
             //使用jwt生成token字符串
             //通过token传递路径，得到用户信息
-
         } catch (Exception e) {
             e.printStackTrace();
         }

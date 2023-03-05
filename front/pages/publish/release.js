@@ -13,12 +13,12 @@ Page({
     niming: [{
         id: '0',
         text: '公开',
-        img: "cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/release-to-all-active.png"
+        img: "../../images/release-to-all-active.png"
       },
       {
         id: '1',
         text: '匿名',
-        img: "cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/release-to-none-active.png"
+        img: "../../images/release-to-none-active.png"
       }
     ]
   },
@@ -256,7 +256,7 @@ Page({
             });
             wx.showToast({
               title: 'peace&love',
-              duration: 3000,
+              duration: 2000,
             })
             console.log("safe1:", this.data.safe);
           } else {
@@ -272,7 +272,6 @@ Page({
     console.log('submitEvent')
     var that = this;
 
-
     //得到输入的内容
     that.setData({
       mycontent: event.detail.value.mycontent
@@ -281,7 +280,7 @@ Page({
     wx.showToast({
       title: '内容检测中，请稍后。。。',
       icon: 'none',
-      duration: 3000,
+      duration: 500,
     })
     that.sensitive();
     setTimeout(function () {
@@ -296,7 +295,6 @@ Page({
           // 图片转码
           that.upToBack()
           console.log('that.data.myimage', that.data.myimage);
-
           // 标签号
           const chooseLabel = wx.getStorageSync('chooseLabel');
           that.setData({
@@ -308,7 +306,7 @@ Page({
       that.setData({
         safe: true,
       })
-    }, 3000);
+    }, 2000);
 
   },
 
@@ -324,7 +322,6 @@ Page({
           if (res.confirm) {
             console.log("点击了确定");
             this.publish();
-
           } else if (res.cancel) {
             console.log("点击了取消");
             this.data.myimage = []

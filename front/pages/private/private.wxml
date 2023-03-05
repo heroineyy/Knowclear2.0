@@ -1,17 +1,8 @@
 <!--pages/private/private.wxml-->
-<!--标题开始-->
-<view class="title">
-  <navigator open-type="navigateBack">
-    <image mode="widthFix" src="../../images/返回箭头.png"></image>
-  </navigator>
-  <text>{{account.name}}</text>
-  <view></view>
-</view>
-<!--标题结束-->
 
-<!--对话框开始-->
-<view class="chat_page">
-  <scroll-view scroll-x scroll-into-view='{{toView}}' style='height: {{scrollHeight}};'>
+<!--对话框开始- -->
+<view >
+  <scroll-view scroll-y scroll-into-view='{{toView}}' style='height:{{scrollHeight}}' >
     <!-- <view class='scrollMsg'> -->
     <block wx:key="gmtCreated" wx:for='{{chats}}' wx:for-index="index">
       <!-- 单个消息2 用户发出（右） -->
@@ -21,10 +12,8 @@
           <image style='width: 4vw;' src='../../images/right_msg.png' mode='widthFix'></image>
         </view>
         <view style='width: 11vw; height: 11vw;'>
-         
           <image style='width: 11vw; height: 11vw; border-radius: 10rpx;' wx:if="{{profile.account.sex!=null}}" src="{{profile.account.sex==1?'../../images/man.png':'../../images/woman.png'}}"></image>
           <image style='width: 11vw; height: 11vw; border-radius: 10rpx;' wx:else src="../../images/nosex.png"></image>
-
         </view>
       </view>
 
@@ -45,20 +34,12 @@
     <!-- 占位 -->
     <view style='width: 100%; height: 18vw;'></view>
   </scroll-view>
-
-
-
 <view class='inputRoom' style='bottom: {{inputBottom}}'>
-    <!-- <image style='width: 7vw; margin-left: 3.2vw;' src='../../images/pic_icon.png' mode='widthFix'></image> -->
-
-    <!-- <input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur'></input> -->
-
+    <image style='width: 7vw; margin-left: 3.2vw;' src='../../images/pic_icon.png' mode='widthFix'></image>
     <input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur' bindinput="getContent"></input>
-    <view class="pub-button" bindtap="sendClick" form-type="reset">发送</view>
+
+    <!-- <input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur' bindinput="getContent"></input>
+    <view class="pub-button" bindtap="sendClick" form-type="reset">发送</view> -->
 </view>
 </view>
-
-
-
-
 <!-- 对话框结束-->

@@ -19,6 +19,7 @@ public class JwtUtils {
     public static final String APP_SECRET = "ukc8BDbRigUDaY6pZFfWus2jZWLPHO";//签名哈希的秘钥
 
     //生成token字符串的方法
+    //todo: 这里存在问题，要解决呀！
     public static String getJwtToken(String openid,String session_key){
 
         String JwtToken = Jwts.builder()

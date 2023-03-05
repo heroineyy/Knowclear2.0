@@ -12,9 +12,9 @@
       <image lazy-load="true" class="user_icon" mode="widthFix" src="{{userInfo.avatarUrl}}"></image>
       <view class="info_detail">
         <view class="nickname">{{userInfo.nickName}}</view>
-        <view class="detail" wx:if="{{profile.account.grade!=null&&profile.account.major!=null}}">{{profile.account.grade}} {{profile.account.major}}{{profile.college}}</view>
-        <view class="detail" wx:if="{{profile.account.grade==null&&profile.account.major!=null}}">{{profile.account.major}}{{profile.college}}</view>
-        <view class="detail" wx:if="{{profile.account.grade!=null&&profile.account.major==null}}">{{profile.account.grade}}{{profile.college}}</view>
+        <view class="detail" wx:if="{{profile.account.grade!=null&&profile.account.major!=null}}">{{profile.account.grade}} {{profile.account.major}} {{profile.college}}</view>
+        <view class="detail" wx:if="{{profile.account.grade==null&&profile.account.major!=null}}">{{profile.account.major}} {{profile.college}}</view>
+        <view class="detail" wx:if="{{profile.account.grade!=null&&profile.account.major==null}}">{{profile.account.grade}} {{profile.college}}</view>
         <view class="detail" wx:if="{{profile.account.grade==null&&profile.account.major==null}}">{{profile.college}}</view>
       </view>
       <navigator url="/pages/information/information">
@@ -22,9 +22,7 @@
       </navigator>
     </view>
     <!--获取用户信息结束-->
-
   </view>
-
 </view>
 <!--用户信息 结束-->
 
@@ -46,7 +44,7 @@
   </navigator>
 </view>
 <!--导航 结束-->
-<view class="gotop" bindtap="gotoaction">置顶</view>
+<view class="gotop" bindtap="gotoaction" style="position: fixed; left: 588rpx; top: 1130rpx; width: 120rpx; height: 68rpx; display: block; box-sizing: border-box">置顶</view>
 <!--留言 开始-->
 <view wx:if="{{hasUserInfo}}" class="message" wx:for="{{topics}}" wx:key="topicId" data-index="index">
   <view class="firstline">
@@ -98,6 +96,7 @@
      <view wx:if="{{item.account.sex!==null}}">
       <image lazy-load="true" src="{{item.account.sex==1?'../../images/man.png':'../../images/woman.png'}}" : mode="widthFix" style="width: 30px;"></image>
      </view>
+
      <!-- 未填写性别 -->
      <view wx:else>
       <image lazy-load="true" src="../../images/nosex.png" mode="widthFix" style="width: 30px;"></image>
@@ -116,6 +115,7 @@
      <!-- //公开 无年级填写 --> 
      <view class="Nickname" style="display:inline;" wx:if="{{!item.isAnonymous&&!item.account.grade}}">{{item.account.nickname}}</view>
     </view>
+
     <view class="likes" bindtap="likes" data-curIndex="{{index}}">
       <image lazy-load="true" class="likes-img" mode="widthFix" wx:if="{{item.upvote}}" src="{{like_url}}"></image>
       <image lazy-load="true" class="likes-img" mode="widthFix" wx:if="{{!item.upvote}}" src="{{unlike_url}}"></image>

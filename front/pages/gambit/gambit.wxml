@@ -11,10 +11,7 @@
             <view wx:if="{{topic.account.sex==null}}" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
               <image  class="others" src="../../images/nosex.png"/>
             </view>
-      <!-- <view class="name" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
-        <view>{{topic.account.nickname}}</view>
-        <view>{{topic.isAnonymous==1?'':topic.account.grade}}</view>
-      </view> -->
+     
        <!-- //匿名 且年级没有填写 且为女生-->
        <view wx:if="{{topic.isAnonymous==1&&topic.account.grade==null&&topic.account.sex==0}}" class="name" bindtap="toOthers" data-openid="{{topic.account.openid}}" data-isAnonymous="{{topic.isAnonymous}}">
              <view class="nickname">某女生</view>
@@ -165,7 +162,7 @@
         <input class='input' placeholder-class="placeholderStyle"  placeholder="{{isAnonymous==0?'回复'+backname:'回复'}}" bindinput="expInput" ></input>
         <view class="anonymous {{aa==0?'selected':''}}" bindtap='selectNiming'>公开</view>
         <view class="anonymous {{aa==1?'selected':''}}" bindtap='FselectNiming'>匿名</view>
-        <button class='buttoner' style="width: 100rpx" bindtap="comment" form-type="reset">发送</button>
+        <button class='buttoner' style="width: 80rpx" bindtap="comment" form-type="reset">发送</button>
         </view>
 </view>
 

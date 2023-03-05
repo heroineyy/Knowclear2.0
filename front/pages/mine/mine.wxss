@@ -154,7 +154,7 @@
   font-weight: 600;
   width: 70px;
   height: 22px;
-  padding-left:20px ;
+  padding-left:10px ;
   text-align: left;
 }
 
@@ -291,7 +291,7 @@
   line-height: 66rpx;
   color: #fff;
   text-align: center;
-  border-radius: 80%;
+  border-radius: 10rpx;
 
 }
 

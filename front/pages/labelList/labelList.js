@@ -127,7 +127,6 @@ Page({
     },
 
     chosen:function(e){
-      var app = getApp();
       console.log(e);
       // wx.setStorageSync({
       //             key: "chooseLable",
