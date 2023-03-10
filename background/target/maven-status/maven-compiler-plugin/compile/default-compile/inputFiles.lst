@@ -8,6 +8,7 @@ C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\m
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\service\ConsultUpvoteService.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\service\impl\TopicServiceImpl.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\mapper\BannerMapper.java
+C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\config\SwaggerConfig.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\service\impl\CollegeServiceImpl.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\controller\TopicImgController.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\utils\WxUtils.java
@@ -25,6 +26,7 @@ C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\m
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\controller\LabelController.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\service\TopicService.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\service\impl\TopicImgServiceImpl.java
+C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\utils\RedisUtil.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\service\impl\CollectionServiceImpl.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\mapper\CommentMapper.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\controller\CollegeController.java
@@ -73,6 +75,7 @@ C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\m
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\controller\ConsultImgController.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\utils\HttpClientUtils.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\mapper\AccountMapper.java
+C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\config\WebMvcConfig.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\mapper\ConsultImgMapper.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\entity\Account.java
 C:\Users\HUAWEI\Desktop\大创资料\项目\kowclear2.0\background\src\main\java\com\miniapp\knowclear\service\CommentService.java

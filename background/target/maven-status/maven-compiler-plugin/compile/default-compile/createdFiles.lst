@@ -3,6 +3,7 @@ com\miniapp\knowclear\mapper\LabelMapper.class
 com\miniapp\knowclear\service\UpvoteService.class
 com\miniapp\knowclear\service\TopicService.class
 com\miniapp\knowclear\mapper\CommentMapper.class
+com\miniapp\knowclear\config\SwaggerConfig.class
 com\miniapp\knowclear\service\impl\ChatServiceImpl.class
 com\miniapp\knowclear\entity\Collection.class
 com\miniapp\knowclear\service\impl\CollectionServiceImpl.class
@@ -17,6 +18,7 @@ com\miniapp\knowclear\service\impl\ConsultUpvoteServiceImpl.class
 com\miniapp\knowclear\service\impl\TopicImgServiceImpl.class
 com\miniapp\knowclear\service\CommentService.class
 com\miniapp\knowclear\vo\TopicVO.class
+com\miniapp\knowclear\config\WebMvcConfig.class
 com\miniapp\knowclear\service\impl\AccountServiceImpl.class
 com\miniapp\knowclear\controller\BannerController.class
 com\miniapp\knowclear\entity\ConsultUpvote.class
@@ -61,6 +63,7 @@ com\miniapp\knowclear\mapper\CollectionMapper.class
 com\miniapp\knowclear\controller\CollectionController.class
 com\miniapp\knowclear\entity\ConsultComment.class
 com\miniapp\knowclear\utils\HttpClientUtils$1.class
+com\miniapp\knowclear\utils\RedisUtil.class
 com\miniapp\knowclear\entity\Consult.class
 com\miniapp\knowclear\service\CollegeService.class
 com\miniapp\knowclear\controller\ConsultCommentController.class

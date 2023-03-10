@@ -25,17 +25,13 @@ public class JwtUtils {
         String JwtToken = Jwts.builder()
                 .setHeaderParam("typ", "JWT")//设置JWT头，随便
                 .setHeaderParam("alg", "HS256")
-
                 .setSubject("onlineedu-user")//设置JWT的分类和过期时间
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRE))
-
                 .claim("openid", openid)//设置token的主体信息，存储用户信息
                 .claim("session_key",session_key)
-
                 .signWith(SignatureAlgorithm.HS256, APP_SECRET)//签名哈希部分，根据秘钥编码
                 .compact();
-
         return JwtToken;
     }
 

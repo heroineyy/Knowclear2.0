@@ -17,4 +17,10 @@ import java.util.Map;
 public interface UpvoteService extends IService<Upvote> {
     Map<String,Object> upvoteTopic(HttpServletRequest request,int topic_id);
     Map<String,Object> cancelUpvoteTopic(HttpServletRequest request,int topic_id);
+
+    //redis 方法
+    Map<String,Object> upvoteTopicForRedis(HttpServletRequest request,int topic_id);
+    Map<String,Object> cancelUpvoteTopicForRedis(HttpServletRequest request,int topic_id);
+
+
 }
