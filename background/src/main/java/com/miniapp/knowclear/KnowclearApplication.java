@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("com.miniapp.knowclear.mapper")
 public class KnowclearApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(KnowclearApplication.class, args);
 	}

@@ -2,6 +2,7 @@ package com.miniapp.knowclear.controller;
 
 
 import com.miniapp.knowclear.service.ConsultUpvoteService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,7 @@ import java.util.Map;
  * @author tlr&ztp
  * @since 2022-01-26
  */
+@Api(tags="事务点赞")
 @RestController
 @RequestMapping("/knowclear/consult-upvote")
 public class ConsultUpvoteController {

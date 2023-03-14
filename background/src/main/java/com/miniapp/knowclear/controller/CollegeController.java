@@ -2,6 +2,7 @@ package com.miniapp.knowclear.controller;
 
 
 import com.miniapp.knowclear.service.CollegeService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import java.util.Map;
  * @author tlr&ztp
  * @since 2022-01-26
  */
+@Api(tags="学校管理")
 @RestController
 @RequestMapping("/knowclear/college")
 public class CollegeController {

@@ -6,6 +6,7 @@ import com.miniapp.knowclear.entity.Label;
 import com.miniapp.knowclear.service.CollectionService;
 import com.miniapp.knowclear.service.LabelService;
 import com.miniapp.knowclear.utils.JwtUtils;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,7 @@ import java.util.Map;
  * @author tlr&ztp
  * @since 2022-01-26
  */
+@Api(tags="标签管理")
 @RestController
 @RequestMapping("/knowclear/label")
 public class LabelController {

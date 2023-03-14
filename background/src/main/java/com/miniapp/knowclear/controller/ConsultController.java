@@ -2,6 +2,7 @@ package com.miniapp.knowclear.controller;
 
 
 import com.miniapp.knowclear.service.ConsultService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import java.util.Map;
  * @author tlr&ztp
  * @since 2022-01-26
  */
+@Api(tags="咨询服务")
 @RestController
 @RequestMapping("/knowclear/consult")
 public class ConsultController {

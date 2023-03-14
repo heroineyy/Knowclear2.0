@@ -5,6 +5,7 @@ package com.miniapp.knowclear.controller;
 import com.miniapp.knowclear.service.TopicService;
 import com.miniapp.knowclear.vo.TopicPublishVO;
 import com.miniapp.knowclear.vo.TopicVO;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ import java.util.*;
  * @author tlr&ztp
  * @since 2022-01-26
  */
+@Api(tags="话题管理")
 @RestController
 @RequestMapping("/knowclear/topic")
 public class TopicController {

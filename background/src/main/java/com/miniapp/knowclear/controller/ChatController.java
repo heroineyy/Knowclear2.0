@@ -3,6 +3,7 @@ package com.miniapp.knowclear.controller;
 
 import com.miniapp.knowclear.entity.Chat;
 import com.miniapp.knowclear.service.ChatService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ import java.util.Map;
  * @author tlr&ztp
  * @since 2022-01-26
  */
+@Api(tags="留言管理")
 @RestController
 @RequestMapping("/knowclear/chat")
 public class ChatController {

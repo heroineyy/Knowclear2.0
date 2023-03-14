@@ -1,5 +1,6 @@
 package com.miniapp.knowclear.config;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -14,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+@EnableKnife4j
 @Profile("dev")
 public class SwaggerConfig {
     /**
@@ -43,8 +45,8 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("konclear小程序后端测试接口文档")
-                .contact(new Contact("heroineyy","https://www.baidu.com","93510710@qq.com"))
-                .termsOfServiceUrl("https://www.baidu.com")
+                .contact(new Contact("heroineyy","https://150.158.6.171","93510710@qq.com"))
+                .termsOfServiceUrl("https://150.158.6.171")
                 .description("测试接口文档")
                 .version("1.0")
                 .build();
