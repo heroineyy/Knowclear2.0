@@ -1,6 +1,7 @@
 package com.miniapp.knowclear.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.miniapp.knowclear.entity.*;
 import com.miniapp.knowclear.mapper.ConsultImgMapper;
 import com.miniapp.knowclear.mapper.ConsultMapper;
@@ -10,6 +11,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.miniapp.knowclear.utils.JwtUtils;
 import com.miniapp.knowclear.vo.ConsultVO;
 import com.miniapp.knowclear.vo.TopicVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -29,6 +31,7 @@ import java.util.Map;
  * @since 2022-01-26
  */
 @Service
+@Slf4j
 public class ConsultServiceImpl extends ServiceImpl<ConsultMapper, Consult> implements ConsultService {
 
     @Resource
@@ -66,11 +69,18 @@ public class ConsultServiceImpl extends ServiceImpl<ConsultMapper, Consult> impl
             //根据openid查询该用户点赞过哪些文章
             List<ConsultUpvote> upvotes = getConsultUpvoteList(openId);
 
+            //分页查询
+            Page<Consult> page=new Page<>(1,10);
+
             //根据college_id和classify查询
             QueryWrapper<Consult> consultQueryWrapper=new QueryWrapper<>();
             consultQueryWrapper.eq("college_id",college_id).eq("classify",classify).orderByDesc("gmt_modified");
-            List<Consult> consults=consultMapper.selectList(consultQueryWrapper);
 
+            //List<Consult> consults=consultMapper.selectList(consultQueryWrapper);
+            Page<Consult> consultsPage=consultMapper.selectPage(page,consultQueryWrapper);
+            List<Consult> consults=consultsPage.getRecords();
+            log.info("success!!!");
+            log.info(String.valueOf(consults));
             //ConsultVO返回列表
             List<ConsultVO> consultList=finishConsultVO(upvotes,consults,openId);
             info.put("consultList",consultList);
