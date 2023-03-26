@@ -223,6 +223,11 @@ public class TopicServiceImpl extends ServiceImpl<TopicMapper, Topic> implements
             topicVO.setContent(t.getContent());
             topicVO.setUpvoteNum(t.getUpvoteNum());
             topicVO.setIsAnonymous(t.getIsAnonymous());
+            //查询该话题的标签
+            Label label= new Label();
+            labelMapper.selectById(t.getLabelId());
+            topicVO.setLabelName(label.getName());
+
             //查询该话题的图片列表
             QueryWrapper<TopicImg> topicImgQueryWrapper=new QueryWrapper<>();
             topicImgQueryWrapper.select("img").eq("topic_id",t.getTopicId());

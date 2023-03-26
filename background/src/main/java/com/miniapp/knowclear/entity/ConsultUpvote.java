@@ -23,7 +23,7 @@ public class ConsultUpvote implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String openid;
-
+    @TableId(type=IdType.AUTO)
     private Integer consultId;
 
 

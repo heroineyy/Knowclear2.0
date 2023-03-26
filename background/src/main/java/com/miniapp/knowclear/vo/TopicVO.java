@@ -10,6 +10,7 @@ import java.util.List;
 @Data
 public class TopicVO {
     private Integer topicId;
+    private String labelName;
     private String content;
     private Integer upvoteNum;
     private Integer isAnonymous;

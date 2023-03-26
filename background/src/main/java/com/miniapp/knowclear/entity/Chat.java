@@ -34,7 +34,7 @@ public class Chat implements Serializable {
     private String rid;
 
     private String content;
-
+    @TableId(type=IdType.AUTO)
     @TableField(fill = FieldFill.INSERT)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date gmtCreated;

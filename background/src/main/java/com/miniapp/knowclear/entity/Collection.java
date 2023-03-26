@@ -24,7 +24,7 @@ public class Collection implements Serializable {
 
 
     private String openid;
-
+    @TableId(type=IdType.AUTO)
     private Integer labelId;
 
 
