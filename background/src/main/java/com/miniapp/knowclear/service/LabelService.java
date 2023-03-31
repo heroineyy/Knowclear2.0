@@ -25,7 +25,7 @@ public interface LabelService extends IService<Label> {
 
     Map<String, Object> selectLabelTopicById(HttpServletRequest request, int label_id);
 
-    List<Label> getAllTopicLabels(int college_id, int classify);
+    List<Label> getAllTopicLabels(int college_id, int classify,int pageNum,int pageSize);
 
     Map<String, Object> publishChatLabel(HttpServletRequest request,Label label,int classify,int college_id);
 }

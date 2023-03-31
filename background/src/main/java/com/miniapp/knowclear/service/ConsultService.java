@@ -21,7 +21,7 @@ public interface ConsultService extends IService<Consult> {
     //获取资讯首页
     Map<String,Object> selectSimpleConsult(int college_id);
     //根据分类和学校id搜索资讯
-    Map<String,Object> getConsult(HttpServletRequest httpServletRequest, int college_id, int classify);
+    Map<String,Object> getConsult(HttpServletRequest httpServletRequest, int college_id, int classify,int pageNum,int pageSize);
 //    //根据关键字模糊搜索话题
 //    Map<String,Object> getConsultsBySerach(HttpServletRequest httpServletRequest, int college_id, String info);
     //根据classify获取资讯列表

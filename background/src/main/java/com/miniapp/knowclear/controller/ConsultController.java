@@ -30,9 +30,9 @@ public class ConsultController {
         return consultService.selectSimpleConsult(college_id);
     }
 
-    @PostMapping("/getConsultList/{college_id}/{classify}")
-    public Map<String,Object> getConsultList(HttpServletRequest request,@PathVariable int college_id,@PathVariable int classify){
-        return consultService.getConsult(request,college_id,classify);
+    @PostMapping("/getConsultList/{college_id}/{classify}/{pageNum}/{pageSize}")
+    public Map<String,Object> getConsultList(HttpServletRequest request,@PathVariable int college_id,@PathVariable int classify,@PathVariable int pageNum,@PathVariable int pageSize){
+        return consultService.getConsult(request,college_id,classify,pageNum,pageSize);
     }
 
     @PostMapping("/getOneConsult/{consult_id}")

@@ -1,6 +1,7 @@
 package com.miniapp.knowclear.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.miniapp.knowclear.entity.Collection;
 import com.miniapp.knowclear.entity.Label;
 import com.miniapp.knowclear.entity.Topic;
@@ -46,7 +47,9 @@ public class LabelServiceImpl extends ServiceImpl<LabelMapper, Label> implements
 
     @Override
     public List<Label> getTopicLabels(int college_id, int classify) {
-        List<Label> labels = labelMapper.selectAllLabels(college_id, classify);
+        QueryWrapper<Label> wrapper =new QueryWrapper<>();
+        wrapper.eq("college_id",college_id).eq("classify",classify);
+        List<Label> labels=labelMapper.selectList(wrapper);
         if(labels.size()>4){
             return labels.subList(0, 4);
         }else {
@@ -92,7 +95,7 @@ public class LabelServiceImpl extends ServiceImpl<LabelMapper, Label> implements
             String openId = JwtUtils.getOpenIdByJwtToken(request);
             //调用接口查询标签相关话题
             LabelTopicVO labelTopicVO = new LabelTopicVO();
-            List<TopicVO> topicVOList = (List<TopicVO>)topicService.getTopicsByLabelId(request,label_id).get("topics");
+            List<TopicVO> topicVOList = (List<TopicVO>)topicService.getTopicsByLabelId(request,label_id,1,4).get("topics");
             labelTopicVO.setTopicVOList(topicVOList);
             //数据库查询标签相关内容
             QueryWrapper<Label> wrapper = new QueryWrapper<>();
@@ -111,8 +114,17 @@ public class LabelServiceImpl extends ServiceImpl<LabelMapper, Label> implements
     }
 
     @Override
-    public List<Label> getAllTopicLabels(int college_id, int classify) {
-        List<Label> labels = labelMapper.selectAllLabels(college_id, classify);
+    public List<Label> getAllTopicLabels(int college_id, int classify,int pageNum,int pageSize) {
+//        QueryWrapper<Label> wrapper =new QueryWrapper<>();
+//        wrapper.eq("college_id",college_id).eq("classify",classify);
+//        List<Label> labels = labelMapper.selectList(wrapper);
+//        return labels;
+
+        Page<Label> page=new Page<>(pageNum,pageSize);
+        QueryWrapper<Label> wrapper =new QueryWrapper<>();
+        wrapper.eq("college_id",college_id).eq("classify",classify);
+        Page<Label> labelsPage=labelMapper.selectPage(page,wrapper);
+        List<Label> labels = labelsPage.getRecords();
         return labels;
     }
 

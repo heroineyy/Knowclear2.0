@@ -16,5 +16,5 @@ import java.util.List;
 public interface LabelMapper extends BaseMapper<Label> {
     List<Label> selectLabelsByTopicNum(int college_id, int classify);
 
-    List<Label> selectAllLabels(int college_id, int classify);
+
 }

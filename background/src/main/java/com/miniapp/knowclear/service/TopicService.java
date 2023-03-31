@@ -20,15 +20,15 @@ import java.util.Map;
  */
 public interface TopicService extends IService<Topic> {
     //根据分类和学校id搜索话题
-    Map<String,Object> getTopics(HttpServletRequest httpServletRequest, int college_id, int classify);
+    Map<String,Object> getTopics(HttpServletRequest httpServletRequest, int college_id, int classify, int pageNum ,int pageSize);
     //根据关键字模糊搜索话题
     Map<String,Object> getTopicsBySerach(HttpServletRequest httpServletRequest, int college_id, String info);
     //获取热门话题
     Map<String,Object> getHotTopics(int college_id);
     //根据label_id获取话题列表
-    Map<String,Object> getTopicsByLabelId(HttpServletRequest request,int label_id);
+    Map<String,Object> getTopicsByLabelId(HttpServletRequest request,int label_id,int pageNum ,int pageSize);
     //根据openid获取自己发布的话题列表
-    Map<String,Object> getUserTopics(HttpServletRequest request);
+    Map<String,Object> getUserTopics(HttpServletRequest request,int pageNum ,int pageSize);
 
     //提取重复代码
     List<TopicVO> finishTopicVO(List<Upvote> upvotes, List<Topic> topics, String openId);

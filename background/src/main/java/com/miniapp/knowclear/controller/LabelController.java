@@ -37,10 +37,10 @@ public class LabelController {
         return info;
     }
     //根据学校id和分类查询所有标签,点击更多出现的查询结果
-    @GetMapping("/selectAllLabelByCollegeId/{college_id}/{classify}")
-    public Map<String,Object> selectAllLabelByCollegeId(@PathVariable int college_id,@PathVariable int classify) {
+    @GetMapping("/selectAllLabelByCollegeId/{college_id}/{classify}/{pageNum}/{pageSize}")
+    public Map<String,Object> selectAllLabelByCollegeId(@PathVariable int college_id,@PathVariable int classify,@PathVariable int pageNum,@PathVariable int pageSize) {
         Map<String, Object> info = new HashMap<>();
-        info.put("labels", labelService.getAllTopicLabels(college_id, classify));
+        info.put("labels", labelService.getAllTopicLabels(college_id, classify,pageNum,pageSize));
         return info;
     }
     //根据学校id返回所有标签

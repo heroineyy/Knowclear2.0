@@ -1,6 +1,7 @@
 package com.miniapp.knowclear.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.miniapp.knowclear.entity.*;
 import com.miniapp.knowclear.mapper.*;
 import com.miniapp.knowclear.service.TopicService;
@@ -44,18 +45,20 @@ public class TopicServiceImpl extends ServiceImpl<TopicMapper, Topic> implements
     private LabelMapper labelMapper;
 
     @Override
-    public Map<String, Object> getTopics(HttpServletRequest httpServletRequest, int college_id, int classify) {
+    public Map<String, Object> getTopics(HttpServletRequest httpServletRequest, int college_id, int classify,int pageNum,int pageSize) {
         Map<String,Object> info=new HashMap<>();
         if(JwtUtils.checkToken(httpServletRequest)){
             String openId = JwtUtils.getOpenIdByJwtToken(httpServletRequest);
 
             //根据openid查询该用户点赞过哪些文章
             List<Upvote> upvotes = getUpvoteList(openId);
+            Page<Topic> page=new Page<>(pageNum,pageSize);
 
             //根据college_id和classify查询
             QueryWrapper<Topic> topicQueryWrapper=new QueryWrapper<>();
             topicQueryWrapper.eq("college_id",college_id).eq("classify",classify).orderByDesc("gmt_modified");
-            List<Topic> topics=topicMapper.selectList(topicQueryWrapper);
+            Page<Topic> topicsPage=topicMapper.selectPage(page,topicQueryWrapper);
+            List<Topic> topics=topicsPage.getRecords();
 
             //创建topicVO返回列表
             List<TopicVO> topicList=finishTopicVO(upvotes,topics,openId);
@@ -113,7 +116,7 @@ public class TopicServiceImpl extends ServiceImpl<TopicMapper, Topic> implements
     }
 
     @Override
-    public Map<String, Object> getTopicsByLabelId(HttpServletRequest request, int label_id) {
+    public Map<String, Object> getTopicsByLabelId(HttpServletRequest request, int label_id,int pageNum,int pageSize) {
         Map<String,Object> result=new HashMap<>();
         if(JwtUtils.checkToken(request)){
             String openId = JwtUtils.getOpenIdByJwtToken(request);
@@ -121,11 +124,13 @@ public class TopicServiceImpl extends ServiceImpl<TopicMapper, Topic> implements
             //根据openid查询该用户点赞过哪些文章
             List<Upvote> upvotes = getUpvoteList(openId);
 
+            Page<Topic> page= new Page<>(pageNum,pageSize);
+
             //根据label_id查询话题
             QueryWrapper<Topic> topicQueryWrapper=new QueryWrapper<>();
             topicQueryWrapper.eq("label_id",label_id);
-            List<Topic> topics = topicMapper.selectList(topicQueryWrapper);
-
+            Page<Topic> topicsPage = topicMapper.selectPage(page,topicQueryWrapper);
+            List<Topic> topics=topicsPage.getRecords();
             //创建topicVO返回列表
             List<TopicVO> topicList=finishTopicVO(upvotes,topics,openId);
             result.put("topics",topicList);
@@ -136,18 +141,20 @@ public class TopicServiceImpl extends ServiceImpl<TopicMapper, Topic> implements
     }
 
     @Override
-    public Map<String, Object> getUserTopics(HttpServletRequest request) {
+    public Map<String, Object> getUserTopics(HttpServletRequest request,int pageNum,int pageSize) {
         Map<String,Object> result=new HashMap<>();
         if(JwtUtils.checkToken(request)){
             String openId = JwtUtils.getOpenIdByJwtToken(request);
 
             //根据openid查询该用户点赞过哪些文章
             List<Upvote> upvotes = getUpvoteList(openId);
-
+            //分页查询
+            Page<Topic> TopicsPage=new Page<>(pageNum,pageSize);
             //根据openId查询话题列表
             QueryWrapper<Topic> topicQueryWrapper=new QueryWrapper<>();
             topicQueryWrapper.eq("openid",openId);
-            List<Topic> topics = topicMapper.selectList(topicQueryWrapper);
+            Page<Topic> topicsPage = topicMapper.selectPage(TopicsPage,topicQueryWrapper);
+            List<Topic> topics=topicsPage.getRecords();
 
             //创建topicVO返回列表
             List<TopicVO> topicList=finishTopicVO(upvotes,topics,openId);

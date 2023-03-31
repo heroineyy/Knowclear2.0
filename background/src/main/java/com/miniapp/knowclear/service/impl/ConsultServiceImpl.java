@@ -61,7 +61,7 @@ public class ConsultServiceImpl extends ServiceImpl<ConsultMapper, Consult> impl
     }
 
     @Override
-    public Map<String, Object> getConsult(HttpServletRequest httpServletRequest, int college_id, int classify) {
+    public Map<String, Object> getConsult(HttpServletRequest httpServletRequest, int college_id, int classify,int pageNum,int pageSize) {
         Map<String,Object> info=new HashMap<>();
         if(JwtUtils.checkToken(httpServletRequest)){
             String openId = JwtUtils.getOpenIdByJwtToken(httpServletRequest);
@@ -70,7 +70,7 @@ public class ConsultServiceImpl extends ServiceImpl<ConsultMapper, Consult> impl
             List<ConsultUpvote> upvotes = getConsultUpvoteList(openId);
 
             //分页查询
-            Page<Consult> page=new Page<>(1,10);
+            Page<Consult> page=new Page<>(pageNum,pageSize);
 
             //根据college_id和classify查询
             QueryWrapper<Consult> consultQueryWrapper=new QueryWrapper<>();
@@ -80,7 +80,6 @@ public class ConsultServiceImpl extends ServiceImpl<ConsultMapper, Consult> impl
             Page<Consult> consultsPage=consultMapper.selectPage(page,consultQueryWrapper);
             List<Consult> consults=consultsPage.getRecords();
             log.info("success!!!");
-            log.info(String.valueOf(consults));
             //ConsultVO返回列表
             List<ConsultVO> consultList=finishConsultVO(upvotes,consults,openId);
             info.put("consultList",consultList);

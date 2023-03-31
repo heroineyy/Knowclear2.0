@@ -27,9 +27,9 @@ public class TopicController {
     @Autowired
     private TopicService topicService;
 
-    @GetMapping("/selectTopicByCollegeId/{college_id}/{classify}")
-    public Map<String,Object> selectTopic(HttpServletRequest httpServletRequest,@PathVariable int college_id,@PathVariable int classify){
-        return topicService.getTopics(httpServletRequest, college_id, classify);
+    @GetMapping("/selectTopicByCollegeId/{college_id}/{classify}/{pageNum}/{pageSize}")
+    public Map<String,Object> selectTopic(HttpServletRequest httpServletRequest,@PathVariable int college_id,@PathVariable int classify,@PathVariable int pageNum,@PathVariable int pageSize){
+        return topicService.getTopics(httpServletRequest, college_id, classify , pageNum, pageSize);
     }
 
     @GetMapping("/searchTopic/{college_id}/{info}")
@@ -47,14 +47,14 @@ public class TopicController {
         return topicService.getOneTopicByTopicId(request, topic_id);
     }
 
-    @GetMapping("/getTopicsByLabelId/{label_id}")
-    public Map<String,Object> getTopicsByLabelId(HttpServletRequest request,@PathVariable int label_id){
-        return topicService.getTopicsByLabelId(request,label_id);
+    @GetMapping("/getTopicsByLabelId/{label_id}/{pageNum}/{pageSize}")
+    public Map<String,Object> getTopicsByLabelId(HttpServletRequest request,@PathVariable int label_id,@PathVariable int pageNum,@PathVariable int pageSize){
+        return topicService.getTopicsByLabelId(request,label_id, pageNum, pageSize);
     }
 
-    @PostMapping("/getUserTopics")
-    public Map<String,Object> getUserTopics(HttpServletRequest request){
-        return topicService.getUserTopics(request);
+    @PostMapping("/getUserTopics/{pageNum}/{pageSize}")
+    public Map<String,Object> getUserTopics(HttpServletRequest request,@PathVariable int pageNum ,@PathVariable int pageSize){
+        return topicService.getUserTopics(request,pageNum,pageSize);
     }
     //用户发布话题调用的方法
     @PostMapping("/publishTopic/{college_id}")
