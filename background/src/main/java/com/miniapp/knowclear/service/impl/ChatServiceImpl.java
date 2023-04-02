@@ -88,7 +88,7 @@ public class ChatServiceImpl extends ServiceImpl<ChatMapper, Chat> implements Ch
     }
 
     @Override
-    public Map<String, Object> selectChatList(HttpServletRequest request, int open_id) {
+    public Map<String, Object> selectChatList(HttpServletRequest request, String open_id) {
         Map<String,Object> result = new HashMap<>();
         if(JwtUtils.checkToken(request)){
             String openId = JwtUtils.getOpenIdByJwtToken(request);

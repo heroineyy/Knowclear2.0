@@ -36,7 +36,7 @@ public class ChatController {
     }
     //点击某一用户，查看曾经双方互相留过的言
     @GetMapping("/selectChatList/{open_id}")
-    public Map<String,Object>selectChatList(HttpServletRequest request, @PathVariable int open_id){
+    public Map<String,Object>selectChatList(HttpServletRequest request, @PathVariable String open_id){
         return chatService.selectChatList(request,open_id);
     }
 }

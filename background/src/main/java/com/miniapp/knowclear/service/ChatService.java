@@ -20,5 +20,5 @@ public interface ChatService extends IService<Chat> {
 
     Map<String, Object> sendChatMessage(HttpServletRequest request, Chat chat);
 
-    Map<String, Object> selectChatList(HttpServletRequest request, int open_id);
+    Map<String, Object> selectChatList(HttpServletRequest request, String open_id);
 }
