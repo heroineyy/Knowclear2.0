@@ -31,12 +31,12 @@ public class UpvoteController {
 
     @PostMapping("/upvoteTopic/{topic_id}")
     public Map<String,Object> upvoteTopic(HttpServletRequest httpServletRequest,@PathVariable int topic_id ){
-        return upvoteService.upvoteTopic(httpServletRequest, topic_id);
+        return upvoteService.upvoteTopicForRedis(httpServletRequest, topic_id);
     }
 
     @PostMapping("/cancelUpvote/{topic_id}")
     public Map<String,Object> cancelUpvoteTopic(HttpServletRequest httpServletRequest,@PathVariable int topic_id){
-        return upvoteService.cancelUpvoteTopic(httpServletRequest, topic_id);
+        return upvoteService.cancelUpvoteTopicForRedis(httpServletRequest, topic_id);
     }
 }
 

@@ -273,4 +273,12 @@ public class TopicServiceImpl extends ServiceImpl<TopicMapper, Topic> implements
         List<Upvote> upvotes = upvoteMapper.selectList(upvoteQueryWrapper);
         return upvotes;
     }
+
+    //todo:持久化到数据库
+    public List<Upvote> getUpvoteListForRedis(String openId) {
+        QueryWrapper<Upvote> upvoteQueryWrapper=new QueryWrapper<>();
+        upvoteQueryWrapper.select("topic_id").eq("open_id",openId);
+        List<Upvote> upvotes = upvoteMapper.selectList(upvoteQueryWrapper);
+        return upvotes;
+    }
 }
