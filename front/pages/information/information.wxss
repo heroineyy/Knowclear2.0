@@ -1,0 +1,65 @@
+/* pages/information/information.wxss */
+page {
+  background-color: #f6f6f6;
+}
+
+.user-info1 {
+  margin: 20px 15px 20px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.u1 {
+  padding: 25rpx;
+  display: flex;
+  line-height: 60rpx;
+  border-bottom: 2px solid #f6f6f6;
+  height: 60rpx;
+  overflow: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.u1 image{
+  width: 10px;
+}
+
+.u2,.r1{
+  text-align: right;
+  width: 80%;
+  color: #acacac;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.user-info-edit1 image.arrow {
+  width: 30rpx;
+  height: 32rpx;
+  float: right;
+  margin-top: 16rpx;
+  border-left: 10px;
+}
+
+.user-info-edit1 {
+  margin: 30px 15px 50px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.user-info-edit1>view {
+  padding: 20rpx;
+  display: flex;
+  line-height: 60rpx;
+  border-bottom: 2px solid #f6f6f6;
+  height: 60rpx;
+}
+
+.user-info-edit1 .r1 {
+  flex: 1;
+  width: 200px;
+}
+
+button {
+  display: block;
+  margin-top: 350rpx;
+}

@@ -1,0 +1,74 @@
+/* pages/edit/edit.wxss */
+page{
+  background-color: #fff;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.grade,.major,.name,.sex{
+  text-align: center;
+  color:#40bc97;
+  font-weight: 800;
+  margin-top: 40rpx;
+  margin-bottom: 10rpx;
+  font-size: 40rpx;
+}
+
+.grade1,.sex1{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}
+
+button{
+  align-self:flex-end;
+}
+
+.g1,.s1{
+  width: 80rpx;
+  background-color:#f6f6f6;
+  margin: 10rpx;
+  border-radius: 10%;
+  width: 160rpx;
+  height: 100rpx;
+  text-align:center;
+  color:darkgray;
+  line-height: 100rpx;
+}
+
+input{
+  margin-top: 40rpx;
+  color: darkgrey;
+  background-color:#f6f6f6;
+  border-radius: 20rpx;
+  margin-right:20px;
+  margin-left:20px;
+  height: 40px;
+}
+
+.placeholder-input{
+  color: #b6b1ad;
+}
+
+.active{
+  width: 80rpx;
+  background-color:#40bc97;
+  margin: 10rpx;
+  border-radius: 10%;
+  width: 160rpx;
+  height: 100rpx;
+  text-align:center;
+  color:#fff;
+  line-height: 100rpx;
+}
+
+.submit{
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+

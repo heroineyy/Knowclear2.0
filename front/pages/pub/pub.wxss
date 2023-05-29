@@ -1,0 +1,13 @@
+.one-image{
+  position: relative;
+}
+.image-choose{
+  width: 250rpx;
+  height: 250rpx;
+}
+.image-del{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  margin: 5rpx;
+}

@@ -1,0 +1,33 @@
+<!--pages/information/information.wxml-->
+<view class="user-info1">
+  <view class="u1">
+    <view >头像</view>
+    <image src="{{user_icon}}" style="border-radius:100%;width: 80rpx;" mode="widthFix" ></image>
+  </view>
+  <view class="u1">昵称
+    <view class="u2" >{{user_name}}</view>
+  </view>
+  <view class="u1">学校
+    <view class="u2">{{college}}</view>
+  </view>
+</view>
+
+<view class="user-info-edit1">
+  <view bindtap="editinfo">年级
+    <view class="r1">{{account.grade}}</view>
+    <image class="arrow" src="../../images/右箭头.png"></image>
+  </view>
+
+  <view bindtap="editinfo">性别
+    <view class="r1" wx:if="{{account.sex==1}}">男</view>
+    <view class="r1" wx:if="{{account.sex==0}}">女</view>
+    <image class="arrow" src="../../images/右箭头.png"></image>
+  </view>
+
+  <view bindtap="editinfo">专业
+    <view class="r1">{{account.major}}</view>
+    <image class="arrow" src="../../images/右箭头.png"></image>
+  </view>
+
+</view>
+

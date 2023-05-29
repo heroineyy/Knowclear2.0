@@ -1,0 +1,27 @@
+        <!-- <view class="weui-search-bar">-->
+            <!-- <view class="weui-search-bar__form"> -->
+            <!-- 搜索框 -->
+                <!-- <view class="weui-search-bar__box">
+                   <icon class="weui-icon-search_in-box"  type="search" size="15" bindtap="doSearch" ></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="假期开始了" confirm-type="search" bindinput="expInput" bindconfirm='doSearch'/>
+                  
+                </view>
+            </view> -->
+        <!-- </view> --> 
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+            <!-- 搜索框 -->
+                <view class="weui-search-bar__box">
+                   <icon class="weui-icon-search_in-box"  type="search" size="15" bindtap="doSearch" ></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="假期开始了" confirm-type="search" bindinput="expInput" bindconfirm='doSearch'/>
+                </view>
+            </view>
+        </view>
+<view class="container">
+<view class="title">热门话题</view>
+<view ><image class="logo" src="../../images/search1.png" mode="heightFix"></image ></view>
+</view>
+<view wx:if="{{hasUserInfo}}" class="title1" bindtap="toGambit" data-topicid="{{hotTopics[0].topicId}}">{{hotTopics[0].content}}</view>
+<view wx:if="{{hasUserInfo}}" class="title2" bindtap="toGambit" data-topicid="{{hotTopics[1].topicId}}">{{hotTopics[1].content}}</view>
+<view wx:if="{{hasUserInfo}}" class="title3" bindtap="toGambit" data-topicid="{{hotTopics[2].topicId}}">{{hotTopics[2].content}}</view>
+<view wx:if="{{hasUserInfo}}" class="title3" bindtap="toGambit" data-topicid="{{hotTopics[3].topicId}}">{{hotTopics[3].content}}</view>

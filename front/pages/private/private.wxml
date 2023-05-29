@@ -1,0 +1,40 @@
+<!--pages/private/private.wxml-->
+
+<!--对话框开始- -->
+<view >
+  <scroll-view scroll-y scroll-into-view='{{toView}}' style='height:{{scrollHeight}}' >
+    <!-- <view class='scrollMsg'> -->
+    <block wx:key="gmtCreated" wx:for='{{chats}}' wx:for-index="index">
+      <!-- 单个消息2 用户发出（右） -->
+      <view wx:if='{{item.rid==account.openid}}' id='msg-{{index}}' style='display: flex; justify-content: flex-end; padding: 2vw 2vw 2vw 11vw;'>
+        <view class='rightMsg'>{{item.content}}</view>
+        <view style='width: 4vw; height: 11vw; margin-right: 0.5vw; display: flex; align-items: center; z-index: 9;'>
+        </view>
+        <view style='width: 11vw; height: 11vw;'>
+          <image style='width: 11vw; height: 11vw; border-radius: 10rpx;' wx:if="{{my_account.sex!=null}}" src="{{my_account.sex==1?'../../images/man.png':'../../images/woman.png'}}"></image>
+          <image style='width: 11vw; height: 11vw; border-radius: 10rpx;' wx:else src="../../images/nosex.png"></image>
+        </view>
+      </view>
+
+      <!-- 单个消息1（左） -->
+      <view wx:else id='msg-{{index}}' style='display: flex; padding: 2vw 11vw 2vw 2vw;'>
+        <view style='width: 11vw; height: 11vw;'>
+          <image style='width: 11vw; height: 11vw; border-radius: 10rpx;' src="{{account.sex==1?'../../images/man.png':'../../images/woman.png'}}"></image>
+        </view>
+        <view style='width: 4vw; height: 11vw; margin-left: 0.5vw; display: flex; align-items: center; z-index: 9;'>
+        </view>
+        <view class='leftMsg'>{{item.content}}</view>
+      </view>
+
+    </block>
+    <!-- </view> -->
+
+    <!-- 占位 -->
+    <view style='width: 100%; height: 18vw;'></view>
+  </scroll-view>
+<view class='inputRoom' style='bottom: {{inputBottom}}'>
+    
+    <input bindconfirm='sendClick' adjust-position='{{false}}' value='{{inputVal}}' confirm-type='send' bindfocus='focus' bindblur='blur' bindinput="getContent" style="width: 708rpx; height: 78rpx; display: block; box-sizing: border-box"></input>
+</view>
+</view>
+<!-- 对话框结束-->

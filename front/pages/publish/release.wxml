@@ -1,0 +1,37 @@
+<!--pages/release/release.wxml-->
+<!-- 选择小屋按钮 -->
+<view class="houseBtn">
+  <button class="chooseAhouse" style="width:auto;height: auto;" bindtap="choose">选择小屋</button>
+</view>
+
+<form bindsubmit="submitEvent">
+  <view class="inputHouse">
+    <!-- 输入文字和图片 -->
+    <view class="style">#{{labelName}}</view>
+    <textarea type="text" placeholder="请输入" placeholder-style="color:#e2e2e2;" class="inputText" maxlength='500' name="mycontent"></textarea>
+    <!-- 上传图片-->
+    <view class="content">
+      <view class="upload">
+        <view class="imgArr" wx:if="{{upImage.length > 0}}" wx:for="{{upImage}}" wx:key="index">
+          <image src="{{item}}" class="upImage" mode="widthFix" bindtap="previewImage" data-src="{{item}}"></image>
+          <image class="delete" bindtap="delete" src="../../images/delete.png" data-id="{{index}}"></image>
+        </view>
+        <image wx:if="{{upImage.length < 9}}" src="../../images/chooseApicture.png" class="upImage" bindtap="uploadImg"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="anonymous-box">
+    <view class="anonymous-txt {{idx==item.id?'selected':''}}" wx:for="{{niming}}" wx:key="index" bindtap='selectNiming' data-id="{{item.id}}">{{item.text}}
+      <image src="{{item.img}}" mode="widthFix" style="width:80rpx;height: 80rpx;"></image>
+    </view>
+  </view> -->
+
+
+  <!-- 发布按钮 -->
+  <view class="release">
+    <button class="release" form-type="submit">发 布</button>
+  </view>
+
+
+</form>

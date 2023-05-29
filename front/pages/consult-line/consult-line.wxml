@@ -1,0 +1,99 @@
+<scroll-view class='scroll-view-container' scroll-y='{{true}}'>
+<view class="box"> 
+<image  wx:if="{{id==0}}" class='background' src="../../images/background.jpg" mode="aspectFill"></image>
+<image  wx:if="{{id==1}}" class='background' src="../../images/back2.jpg" mode="aspectFill"></image>
+<image  wx:if="{{id==2}}" class='background' src="../../images/back1.jpg" mode="aspectFill"></image>
+<image  wx:if="{{id==3}}" class='background' src="../../images/back3.jpg" mode="aspectFill"></image>
+<view class="item">
+<view >
+  <image class='image22' wx:if="{{id==0}}" src="../../images/ab.png" mode="heightFix"></image> 
+   <image class='image22' wx:if="{{id==1}}" src="../../images/zhaoping.png" mode="heightFix"></image>  
+   <image class='image22' wx:if="{{id==2}}" src="../../images/saizheng.png" mode="heightFix"></image>  
+   <image class='image22' wx:if="{{id==3}}" src="../../images/zhaop.png" mode="heightFix"></image>
+</view>
+
+<view>
+<view class="title">
+<text decode="{{true}}" wx:if="{{id==0}}"> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;官方公告</text>
+<text decode="{{true}}" wx:if="{{id==1}}"> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;社团零距离</text>          
+<text decode="{{true}}" wx:if="{{id==2}}"> &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;直通赛证</text>          
+<text decode="{{true}}" wx:if="{{id==3}}"> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校园招聘</text>          
+</view>
+
+<view class="body">
+  <text   wx:if="{{id==0}}">学校信息，寝室规定
+校史文化，学校特色
+校园基础信息集合地</text>
+<text  wx:if="{{id==1}}">连接社团，集合信息
+面向学生，整合分类
+双向选择零距离</text>          
+<text  wx:if="{{id==2}}">比赛信息，竞赛分类
+联合组队，真题比拼
+直通赛证无压力</text>          
+<text  wx:if="{{id==3}}">岗位招聘，实习推荐
+企业联动，机会丰富
+岗位多多你能行</text> </view>
+</view>
+</view>
+</view>
+
+
+<view class="title1" wx:for="{{consultList}}" wx:key="index">
+<navigator url="/pages/consult-chat/consult-chat?consult={{consultList[index].consultId}}">
+{{consultList[index].title}}
+</navigator>
+  <view  class="imagebinglie">
+<view class="images">
+              <view class="images_1"  wx:if="{{item.imgs.length==1}}">          
+                <image class="image_1"data-url="{{item.imgs}}" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}" catchtap="previewImage"  data-current="{{item_img}}" ></image>
+              </view>
+            </view>
+              <!-- 2,3张图片 -->
+              <view class="images">
+                <view class="images_2"  wx:if="{{item.imgs.length>=2&&item.imgs.length<=3}}">          
+                <image class="image_2" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"catchtap="previewImage" data-current="{{item_img}}" data-url="{{item.imgs}}"></image>
+              </view>
+              </view>
+              <!-- 4张图片 -->
+              <view class="images">
+                <view class="images_3"  wx:if="{{item.imgs.length==4}}">          
+                <image class="image_3" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"catchtap="previewImage" data-current="{{item_img}}" data-url="{{item.imgs}}"></image>
+              </view>
+            </view>
+            <!-- <view class="images"> -->
+              <!-- 5-6张图片 -->
+              <view class="images">
+                <view class="images_5"  wx:if="{{item.imgs.length>=5&&item.imgs.length<=6}}">          
+                <image class="image_5" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"catchtap="previewImage" data-current="{{item_img}}" data-url="{{item.imgs}}"></image>
+              </view>
+            </view>
+            <!-- 9张图片 -->
+            <view class="images">
+              <view class="images_6"  wx:if="{{item.imgs.length>6}}">          
+                <image class="image_6" wx:for="{{item.imgs}}" wx:key="index" wx:for-item="item_img" src="{{item_img}}"catchtap="previewImage" data-current="{{item_img}}" data-url="{{item.imgs}}"></image>
+              </view>
+            </view>
+</view>
+<view class="title2">
+<view class="image3"><image class='image3' src="{{consultList[index].avatar}}" mode="heightFix"></image></view>
+<text decode="true" class="font" >{{consultList[index].publisher}} &nbsp;&nbsp;{{consultList[index].gmtCreated}}</text>
+<!-- 点赞 -->
+<view class="image4">
+<image bindtap="cancleupvote" data-id1='{{index}}' class='image3' wx:if="{{consultList[index].upvote}}" src="../../images/dianzan2.png" mode="heightFix"></image>
+  <image class='image3' bindtap="upvote" data-id1='{{index}}' wx:else src="../../images/dianzan.png" mode="heightFix"></image>
+  <view class="prize-num">{{item.upvoteNum}}</view>
+</view>
+
+<navigator url="/pages/consult-chat/consult-chat?consult={{consultList[index].consultId}}">
+<view class="image5"><image class='image3' src="../../images/pinglun.png" mode="heightFix"></image></view>
+</navigator>
+</view>
+</view>
+</scroll-view>
+   
+     
+     
+    
+     
+
+      

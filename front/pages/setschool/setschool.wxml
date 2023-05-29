@@ -1,0 +1,68 @@
+<!--pages/school/school.wxml-->
+
+<view class="content">
+    <!-- 提示 -->
+    <view class="tip">
+        <!-- <image src="cloud://knowclear-6gbgnac5346e9091.6b6e-knowclear-6gbgnac5346e9091-1308790420/image/frontPage.png" mode="widthFix"></image> -->
+        <view class="tipschool" >
+        <text class="schoolname">您来自:</text>
+        <view class="name">
+            <text>{{college_name}}</text>
+        </view>
+        </view>
+        <view class="tipschool" >
+        <text class="schoolname">当前浏览的学校是:</text>
+        <view class="name">
+            <text>{{view_college_name}}</text>
+        </view>
+        </view>
+
+    
+    </view>
+
+    <!-- 选项 -->
+    <view class="choice">
+    
+    <!-- 上海海事大学 -->
+    <view class="school" >
+        <text class="schoolname">上海海事大学</text>
+        <view>
+           <button class="btn" style="width:auto;height: auto;" 
+           bindtap="chooseASchool_haishi">点击选择</button>
+        </view>
+    </view>
+    <!-- 上海海洋大学 -->
+    <view class="school">
+        <text class="schoolname">上海海洋大学</text>
+        <view>
+            <button class="btn" style="width:auto;height: auto;" 
+            bindtap="chooseASchool_haiyang">点击选择</button>
+        </view>
+    </view>
+    <!-- 上海电力大学 -->
+    <view class="school">
+        <text class="schoolname">上海电力大学</text>
+        <view>
+            <button class="btn" style="width:auto;height: auto;" 
+            bindtap="chooseASchool_dianli">点击选择</button>
+        </view>
+    </view>
+    <!-- 上海电机学院 -->
+    <view class="school">
+        <text class="schoolname">上海电机学院</text>
+        <view>
+            <button class="btn" style="width:auto;height: auto;" 
+            bindtap="chooseASchool_dianji">点击选择</button>
+        </view>
+    </view>
+    <!-- 上海建桥学院 -->
+    <view class="school">
+        <text class="schoolname">上海建桥学院</text>
+        <view>
+            <button class="btn" style="width:auto;height: auto;" 
+            bindtap="chooseASchool_jianqiao">点击选择</button>
+        </view>
+    </view>
+    </view>
+    
+</view>

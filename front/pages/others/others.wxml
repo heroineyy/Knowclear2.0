@@ -1,0 +1,81 @@
+<view class="others">
+  <view class="top">
+  <!-- 头像 -->
+
+  <!-- 已经填写性别男-->
+  <view wx:if="{{profile.sex==1}}">
+    <image class="face" src="../../images/man.png" ></image>
+  </view>
+  <!-- 已经填写性别女  -->
+  <view wx:if="{{profile.sex==0}}">
+    <image class="face" src="../../images/woman.png" ></image>
+    <!-- <view class="name">某女生</view> -->
+  </view>
+    <!-- 没有填写性别-->
+  <view wx:if="{{profile.sex==null}}">
+    <image class="face" src="../../images/nosex.png" ></image>
+  </view>
+  <!-- 昵称 -->
+  <!-- 匿名 无性别 -->
+    <view  wx:if="{{profile.sex==null&&isAnonymous==1}}" class="name">某学生</view>
+    <!-- 匿名 男 -->
+    <view  wx:if="{{profile.sex==1&&isAnonymous==1}}" class="name">某男生</view>
+    <!-- 匿名 女 -->
+    <view  wx:if="{{profile.sex==0&&isAnonymous==1}}" class="name">某女生</view>
+    <!--公开 -->
+    <view  wx:if="{{isAnonymous==0}}" class="name">{{profile.nickname}}</view>
+
+  </view>
+
+  <view class="center">
+    <view class="sex">
+      <view>性别</view> 
+      <!-- 匿不匿名都显示 -->
+      <view class="sex-text"  wx:if="{{profile.sex==1}}">男</view>
+      <view class="sex-text"  wx:if="{{profile.sex==0}}">女</view>
+      <view class="sex-text"  wx:if="{{profile.sex==null}}"></view>
+    </view>
+    <view class="divLine"></view>
+
+    <view class="grade">
+      <view>年级</view>
+      <!-- 公开且已经填写年级 -->
+      <view class="grade-sex"  wx:if="{{isAnonymous==0&&profile.grade!==null}}">{{profile.grade}}</view>
+      <!-- 公开但没有填写年级 -->
+      <view class="grade-sex"  wx:if="{{isAnonymous==0&&profile.grade==null}}"></view>
+      <!-- 匿名但没有填写年级 -->
+      <view class="grade-sex"  wx:if="{{isAnonymous==1&&profile.grade==null}}"></view>
+      <!-- 匿名已经填写年级 -->
+      <view class="grade-sex"  wx:if="{{isAnonymous==1&&profile.grade!==null}}">{{profile.grade}}</view>
+    </view>
+    <view class="divLine"></view>
+
+    <view class="major">
+      <view>专业</view>
+      <!-- 匿名 -->
+      <view class="major-text"  wx:if="{{isAnonymous==1}}"></view>
+      <!-- 公开且已经填写专业 -->
+      <view class="major-text"  wx:if="{{isAnonymous==0&&profile.major!==null}}">{{profile.major}}</view>
+      <!-- 公开但没有填写专业 -->
+      <view class="major-text"  wx:if="{{isAnonymous==0&&profile.major==null}}"></view>
+    </view>
+    <view class="divLine"></view>
+
+    <view class="school">
+      <view>学校</view>
+      <!-- 匿名 -->
+      <view class="major-text"  wx:if="{{isAnonymous==1}}"></view>
+      <!-- 公开且已经填写学校 -->
+      <view class="major-text"  wx:if="{{isAnonymous==0&&college!==null}}">{{college}}</view>
+      <!-- 公开但没有填写学校 -->
+      <view class="major-text"  wx:if="{{isAnonymous==0&&college==null}}"></view>
+    </view>
+    <view class="divLine"></view>
+
+  </view>
+  <view class="low" wx:if="{{openid_1!==openid_0}}">
+      <view class="low-text"  bindtap="toPrivate" data-openid="{{profile.openid}}"
+      data-name="{{profile.nickname}}">私聊他</view>
+  </view>
+</view>
+

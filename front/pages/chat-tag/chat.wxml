@@ -1,0 +1,31 @@
+<!--pages/chat/chat.wxml-->
+<view class="create" bindtap="clickToCreate">
+  <view class="createTagText">
+    <text>加入knowclear</text>
+    <text>创建属于你自己的小屋</text>
+  </view>
+
+  <view>
+    <image src="../../images/create-a-house.png" mode="widthFix" style="width:80rpx;height: 80rpx;"></image>
+  </view>
+</view>
+
+
+<view class="tags">
+  <view wx:for="{{arr}}" wx:key="index" bindtap="toTag" data-labelId="{{item.labelId}}">
+    <view class="aTag">
+      <!-- 一条小屋 -->
+      <view>
+        <image mode="widthFix" style="width:80rpx;height: 80rpx;" src="{{item.img}}"></image>
+      </view>
+
+      <view class="TagText">
+        <text style="color: #000000;    font-size: 30rpx; margin: 8rpx;">{{item.name}}</text>
+        <text style="color: #99CABD;    font-size: 25rpx; margin: 8rpx;">{{item.content}}</text>
+      </view>
+
+      <view class="line">
+      </view>
+    </view>
+  </view>
+</view>

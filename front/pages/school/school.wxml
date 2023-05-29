@@ -1,0 +1,55 @@
+<!--pages/school/school.wxml-->
+
+<view class="content">
+    <!-- 提示 -->
+    <view class="tip">
+        <image src="../../images/soloTitle.png" mode="widthFix" ></image>
+        <!-- <image src="../../images/soloTitle.png" mode="widthFix" style="width: 100%;"></image> -->
+    </view>
+
+    <!-- 选项 -->
+    <view class="choice">
+    
+    <!-- 上海海事大学 -->
+    <view class="school" >
+        <text class="schoolname">上海海事大学</text>
+        <view>
+           <button class="btn" style="width:auto;height: auto;" 
+           bindtap="chooseASchool_haishi">点击选择</button>
+        </view>
+    </view>
+    <!-- 上海海洋大学 -->
+    <view class="school">
+        <text class="schoolname">上海海洋大学</text>
+        <view>
+            <button class="btn" style="width:auto;height: auto;" 
+            bindtap="chooseASchool_haiyang">点击选择</button>
+        </view>
+    </view>
+    <!-- 上海电力大学 -->
+    <view class="school">
+        <text class="schoolname">上海电力大学</text>
+        <view>
+            <button class="btn" style="width:auto;height: auto;" 
+            bindtap="chooseASchool_dianli">点击选择</button>
+        </view>
+    </view>
+    <!-- 上海电机学院 -->
+    <view class="school">
+        <text class="schoolname">上海电机学院</text>
+        <view>
+            <button class="btn" style="width:auto;height: auto;" 
+            bindtap="chooseASchool_dianji">点击选择</button>
+        </view>
+    </view>
+    <!-- 上海建桥学院 -->
+    <view class="school">
+        <text class="schoolname">上海建桥学院</text>
+        <view>
+            <button class="btn" style="width:auto;height: auto;" 
+            bindtap="chooseASchool_jianqiao">点击选择</button>
+        </view>
+    </view>
+    </view>
+    
+</view>
