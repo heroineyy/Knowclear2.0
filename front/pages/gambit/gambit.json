@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "comment": "/pages/component/comment",
-    "tree": "/components/treeItem/treeItem",
-    "a": "/components/commentdetail/commentdetail"
-  }
-}
